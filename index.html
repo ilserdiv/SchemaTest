@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE Practice Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <section class="section">
+      <h2>🧠 Generate Quiz</h2>
+      <!-- Hidden Prompt -->
+      <textarea id="hiddenPrompt" style="display:none;">Create a 10-item Multiple Choice Word Analogy Quiz in the style of the Philippine Civil Service Exam. Use professional-level vocabulary and avoid overly simple or literal examples (e.g., Fire:Burn :: Ice:Melt).Focus on analogy types such as: Synonym, Antonym, Part–Whole, Cause–Effect, Sequence, Classification, Degree, Function–Tool, Problem–Solution, and Person–Role. Use uncommon but meaningful words to increase challenge. Do not use line breaks or spaces. Return your answer in this exact compact format for parsing: Q1:(A:B::C:?)A1(A.W,B.X,C.Y,D.Z)Q2:(A:B::C:?)A2(A.W,B.X,C.Y,D.Z)...Q10:(A:B::C:?)A10(A.W,B.X,C.Y,D.Z)
+      </textarea>
+
+      <button onclick="copyPrompt()">📋 Copy Prompt</button>
+      <p id="copy-prompt-instruction">
+        👉 Paste in ChatGPT. Copy the response and paste it in the box below.
+      </p>
+
+      <div id="quiz-container" contenteditable="true" class="editable"></div>
+
+      <button onclick="generateQuiz()">Format Quiz</button>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
