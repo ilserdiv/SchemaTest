@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select a Test | SchemaTest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="tests.js"></script>
+</head>
+<body>
+  <div class="selector-container">
+    <h1>🧠 Choose Your Subject</h1>
+
+    <!-- Main Category Buttons -->
+    <div id="main-categories" class="button-group">
+      <button onclick="showSubcategories('english')">English</button>
+      <button disabled>Math</button>
+      <button disabled>Other</button>
+    </div>
+
+    <!-- English Subcategories -->
+    <div id="english-subcategories" class="button-group" style="display: none;">
+      <h2>English Categories</h2>
+      <button disabled>Logical Fallacies</button>
+      <button disabled>Assumption & Conclusion</button>
+      <button disabled>Grammar</button>
+      <button disabled>Vocabulary</button>
+      <a href="test.html?category=word-analogy"><button>Word Analogy</button></a>
+      <button disabled>Sequences</button>
+      <button onclick="goBackToMain()">⬅ Back</button>
+    </div>
+  </div>
+</body>
+</html>

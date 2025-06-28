@@ -1,0 +1,197 @@
+[
+  {
+    "id": 16,
+    "subtype": "Synonym",
+    "question": "Happy : Joyful :: ? : ?",
+    "choices": ["Angry : Furious", "Kind : Rude", "Soft : Quiet", "Fast : Loud"],
+    "answer": "Angry : Furious",
+    "explanations": {
+      "Angry : Furious": "'Happy' and 'Joyful' are synonyms; 'Angry' and 'Furious' are too.",
+      "Kind : Rude": "These are antonyms, not synonyms like Happy : Joyful.",
+      "Soft : Quiet": "Not direct synonyms; one is texture, the other sound.",
+      "Fast : Loud": "Fast relates to speed; loud relates to volume."
+    }
+  },
+  {
+    "id": 17,
+    "subtype": "Antonym",
+    "question": "Light : Dark :: ? : ?",
+    "choices": ["Tall : Short", "Heavy : Weight", "Bright : Shine", "Sun : Moon"],
+    "answer": "Tall : Short",
+    "explanations": {
+      "Tall : Short": "'Light' is the opposite of 'Dark'; 'Tall' is the opposite of 'Short'.",
+      "Heavy : Weight": "Heavy is a description; weight is a measurement.",
+      "Bright : Shine": "These are associated but not antonyms.",
+      "Sun : Moon": "These are celestial bodies, not opposites in trait."
+    }
+  },
+  {
+    "id": 18,
+    "subtype": "Tool to Function",
+    "question": "Key : Unlock :: ? : ?",
+    "choices": ["Pen : Write", "Book : Read", "Clock : Time", "Shoe : Walk"],
+    "answer": "Pen : Write",
+    "explanations": {
+      "Pen : Write": "A key is used to unlock; a pen is used to write.",
+      "Book : Read": "A book is read, but it doesn't perform an action like a pen.",
+      "Clock : Time": "Clock shows time, not an action like unlock.",
+      "Shoe : Walk": "Shoes help with walking, but not in the same cause-effect sense."
+    }
+  },
+  {
+    "id": 19,
+    "subtype": "Part to Whole",
+    "question": "Finger : Hand :: ? : ?",
+    "choices": ["Toe : Foot", "Nose : Face", "Hair : Head", "Nail : Finger"],
+    "answer": "Toe : Foot",
+    "explanations": {
+      "Toe : Foot": "A finger is part of the hand; a toe is part of the foot.",
+      "Nose : Face": "The nose is part of the face, but not as parallel as toe-foot.",
+      "Hair : Head": "Hair is on the head, but isn't a structural part like finger.",
+      "Nail : Finger": "A nail is part of a finger, which is already a subpart."
+    }
+  },
+  {
+    "id": 20,
+    "subtype": "Cause and Effect",
+    "question": "Fire : Burn :: ? : ?",
+    "choices": ["Rain : Wet", "Snow : Cold", "Wind : Blow", "Ice : Freeze"],
+    "answer": "Rain : Wet",
+    "explanations": {
+      "Rain : Wet": "Fire causes burning; rain causes wetness.",
+      "Snow : Cold": "Snow is cold, but doesn’t cause coldness.",
+      "Wind : Blow": "Wind blows, but it’s not a cause-effect structure.",
+      "Ice : Freeze": "Ice is a result of freezing, not the cause of it."
+    }
+  },
+  {
+    "id": 21,
+    "subtype": "Tool to Object",
+    "question": "Hammer : Nail :: ? : ?",
+    "choices": ["Scissors : Paper", "Shovel : Dirt", "Brush : Paint", "Oven : Bake"],
+    "answer": "Scissors : Paper",
+    "explanations": {
+      "Scissors : Paper": "A hammer is used on a nail; scissors are used on paper.",
+      "Shovel : Dirt": "A shovel moves dirt, but isn't used directly on it like cutting.",
+      "Brush : Paint": "A brush spreads paint, but that’s not a precise parallel.",
+      "Oven : Bake": "Oven is a tool for baking, not a tool used on an object."
+    }
+  },
+  {
+    "id": 22,
+    "subtype": "Location or Setting",
+    "question": "Book : Library :: ? : ?",
+    "choices": ["Bed : Bedroom", "Fish : Ocean", "Patient : Hospital", "Student : School"],
+    "answer": "Bed : Bedroom",
+    "explanations": {
+      "Bed : Bedroom": "A book is found in a library; a bed is found in a bedroom.",
+      "Fish : Ocean": "The ocean is a habitat, not a human-created storage like library.",
+      "Patient : Hospital": "A patient is not stored in a hospital like a book is.",
+      "Student : School": "A student learns in school, not stored like a book."
+    }
+  },
+  {
+    "id": 23,
+    "subtype": "Rhyming",
+    "question": "Cat : Hat :: ? : ?",
+    "choices": ["Dog : Log", "Cow : Plow", "Pig : Fig", "Sun : Moon"],
+    "answer": "Dog : Log",
+    "explanations": {
+      "Dog : Log": "Both words rhyme, just like Cat and Hat.",
+      "Cow : Plow": "They don’t perfectly rhyme; also not common analogs.",
+      "Pig : Fig": "A bit obscure and not as familiar a pair as Dog : Log.",
+      "Sun : Moon": "These are opposites, not rhyming words."
+    }
+  },
+  {
+    "id": 24,
+    "subtype": "Category to Member",
+    "question": "Rose : Flower :: ? : ?",
+    "choices": ["Banana : Fruit", "Tree : Leaf", "Apple : Red", "Rock : Mineral"],
+    "answer": "Banana : Fruit",
+    "explanations": {
+      "Banana : Fruit": "A rose is a type of flower; a banana is a type of fruit.",
+      "Tree : Leaf": "A leaf is part of a tree, not a type of tree.",
+      "Apple : Red": "Red is a color, not a category like 'fruit'.",
+      "Rock : Mineral": "Minerals form rocks, not a perfect analogy."
+    }
+  },
+  {
+    "id": 25,
+    "subtype": "Degree or Intensity",
+    "question": "Warm : Hot :: ? : ?",
+    "choices": ["Cold : Freezing", "Dry : Wet", "Rainy : Sunny", "Big : Small"],
+    "answer": "Cold : Freezing",
+    "explanations": {
+      "Cold : Freezing": "'Warm' becomes 'Hot'; 'Cold' becomes 'Freezing'. It’s degree.",
+      "Dry : Wet": "These are opposites, not degrees of the same trait.",
+      "Rainy : Sunny": "Opposites, not increasing intensity.",
+      "Big : Small": "Not related by degree, but by size contrast."
+    }
+  },
+  {
+    "id": 26,
+    "subtype": "Sequence or Development",
+    "question": "Seed : Plant :: ? : ?",
+    "choices": ["Egg : Chick", "Caterpillar : Moth", "Pencil : Sharpener", "Rain : River"],
+    "answer": "Egg : Chick",
+    "explanations": {
+      "Egg : Chick": "A seed grows into a plant; an egg hatches into a chick.",
+      "Caterpillar : Moth": "Similar, but less commonly paired than egg-chick.",
+      "Pencil : Sharpener": "A sharpener changes a pencil’s shape, not a growth cycle.",
+      "Rain : River": "Rain contributes to rivers, but not like growth."
+    }
+  },
+  {
+    "id": 27,
+    "subtype": "Creator to Work",
+    "question": "Camera : Photograph :: ? : ?",
+    "choices": ["Stove : Meal", "Microscope : Cell", "Computer : Typing", "Chisel : Sculpture"],
+    "answer": "Chisel : Sculpture",
+    "explanations": {
+      "Chisel : Sculpture": "A camera creates a photograph; a chisel creates a sculpture.",
+      "Stove : Meal": "A stove helps cook, but doesn’t produce a meal alone.",
+      "Microscope : Cell": "A microscope views a cell, not creates it.",
+      "Computer : Typing": "Typing is an action, not a product."
+    }
+  },
+  {
+    "id": 28,
+    "subtype": "Symbol to Concept",
+    "question": "Heart : Love :: ? : ?",
+    "choices": ["Dove : Peace", "Crown : King", "Tree : Nature", "Dog : Loyalty"],
+    "answer": "Dove : Peace",
+    "explanations": {
+      "Dove : Peace": "The heart symbolizes love; the dove symbolizes peace.",
+      "Crown : King": "A crown is worn by a king, not a symbolic emotion.",
+      "Tree : Nature": "A tree is part of nature, not a symbol.",
+      "Dog : Loyalty": "A dog represents loyalty, but not symbolically as strongly."
+    }
+  },
+  {
+    "id": 29,
+    "subtype": "Tool to User",
+    "question": "Painter : Brush :: ? : ?",
+    "choices": ["Writer : Pen", "Pilot : Plane", "Doctor : Syringe", "Musician : Note"],
+    "answer": "Writer : Pen",
+    "explanations": {
+      "Writer : Pen": "A painter uses a brush; a writer uses a pen.",
+      "Pilot : Plane": "A plane is transportation, not a creative tool.",
+      "Doctor : Syringe": "A syringe is used, but not in a creative sense.",
+      "Musician : Note": "A note is a product, not a tool."
+    }
+  },
+  {
+    "id": 30,
+    "subtype": "Part to Whole",
+    "question": "Book : Chapter :: ? : ?",
+    "choices": ["Year : Month", "Car : Engine", "Tree : Leaf", "Computer : Mouse"],
+    "answer": "Year : Month",
+    "explanations": {
+      "Year : Month": "A chapter is a part of a book; a month is a part of a year.",
+      "Car : Engine": "An engine is a part, but not sequential like a chapter.",
+      "Tree : Leaf": "Leaves are on a tree, not part in a sequential sense.",
+      "Computer : Mouse": "Mouse is an accessory, not a structural part."
+    }
+  }
+]

@@ -2,29 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>SchemaTest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSE Practice Quiz</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <section class="section">
-      <h2>🧠 Generate Quiz</h2>
-      <!-- Hidden Prompt -->
-      <textarea id="hiddenPrompt" style="display:none;">Create a 10-item Multiple Choice Word Analogy Quiz in the style of the Philippine Civil Service Exam. Use professional-level vocabulary and avoid overly simple or literal examples (e.g., Fire:Burn :: Ice:Melt).Focus on analogy types such as: Synonym, Antonym, Part–Whole, Cause–Effect, Sequence, Classification, Degree, Function–Tool, Problem–Solution, and Person–Role. Use uncommon but meaningful words to increase challenge. Do not use line breaks or spaces. Return your answer in this exact compact format for parsing: Q1:(A:B::C:?)A1(A.W,B.X,C.Y,D.Z)Q2:(A:B::C:?)A2(A.W,B.X,C.Y,D.Z)...Q10:(A:B::C:?)A10(A.W,B.X,C.Y,D.Z)
-      </textarea>
+  <div class="landing-container">
+    <header>
+      <h1 class="logo">🧠 SchemaTest</h1>
+      <p class="tagline">SchemaTest is a growing platform for mastering skills, reviewing concepts, and excelling in exams</p>
+    </header>
 
-      <button onclick="copyPrompt()">📋 Copy Prompt</button>
-      <p id="copy-prompt-instruction">
-        👉 Paste in ChatGPT. Copy the response and paste it in the box below.
+    <section class="about">
+      <h2>SchemaTest: Civil Service Reviewer</h2>
+      <p>
+        Welcome to the Civil Service section of SchemaTest — your structured, strategic reviewer for the Philippine Civil Service Exam. This part of our platform is built for one thing: helping you pass with confidence.
       </p>
-
-      <div id="quiz-container" contenteditable="true" class="editable"></div>
-
-      <button onclick="generateQuiz()">Format Quiz</button>
+      <p>
+        We’ve organized the English and Math subjects into detailed categories like Grammar, Vocabulary, Logical Reasoning, and Word Analogy — each one paired with lessons and mock tests to reinforce mastery.
+      </p>
+      <p>
+        Whether you're just starting your review or sharpening specific skills, SchemaTest gives you a streamlined experience so you can focus on what matters.
+      </p>
     </section>
-  </div>
 
-  <script src="main.js"></script>
+    <section class="subjects">
+      <h2>Subjects</h2>
+      <h3>ENGLISH</h3>
+      <ul>
+        <li>Logical Fallacies</li>
+        <li>Assumption and Conclusion</li>
+        <li>Grammar</li>
+        <li>Vocabulary</li>
+        <li>Word Analogy</li>
+        <li>Sequences</li>
+      </ul>
+      <h3>MATH</h3>
+      <p>(Coming soon)</p>
+      <h3>OTHER</h3>
+      <p>(Coming soon)</p>
+    </section>
+
+    <section class="explanation">
+      <h2>What You'll Find Inside</h2>
+      <p>
+        At SchemaTest, we believe learning should be both structured and practical. That's why each subject is split into two powerful modes:
+      </p>
+      <ul>
+        <li><strong>Lessons</strong> – Concise explanations, examples, and strategies for every category</li>
+        <li><strong>Tests</strong> – Timed practice quizzes modeled after real CSE questions</li>
+      </ul>
+      <p>
+        Whether you're brushing up on grammar rules or challenging yourself with tricky analogies, SchemaTest gives you the clarity and repetition needed to pass with confidence.
+      </p>
+      <p>
+        🚀 <em>Ready to review smarter, not harder?</em> Begin your journey now!
+      </p>
+    </section>
+
+    <div class="cta-buttons">
+      <button disabled>📘 Lessons</button>
+      <a href="tests.html"><button>📝 Tests</button></a>
+    </div>
+  </div>
 </body>
 </html>
