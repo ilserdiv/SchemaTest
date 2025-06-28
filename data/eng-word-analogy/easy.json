@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "subtype": "Synonym",
+    "question": "Glove : Hand :: Sock : ?",
+    "choices": ["Foot", "Shoe", "Head", "Fist"],
+    "answer": "Foot",
+    "explanations": {
+      "Foot": "A glove covers the hand; a sock covers the foot.",
+      "Shoe": "A shoe is worn over a sock, not directly analogous to a glove.",
+      "Head": "A sock is not worn on the head; a hat is.",
+      "Fist": "A fist is a shape made with the hand, not something worn like a glove."
+    }
+  },
+  {
+    "id": 2,
+    "subtype": "Antonym",
+    "question": "Bird : Fly :: Fish : ?",
+    "choices": ["Swim", "Walk", "Sing", "Run"],
+    "answer": "Swim",
+    "explanations": {
+      "Swim": "Birds fly; fish swim. Both are natural modes of movement.",
+      "Walk": "Fish do not walk; that’s more associated with land animals.",
+      "Sing": "Birds sing, but the analogy is about movement, not sound.",
+      "Run": "Running is not how fish move."
+    }
+  },
+  {
+    "id": 3,
+    "subtype": "Part to Whole",
+    "question": "Pencil : Write :: Eraser : ?",
+    "choices": ["Erase", "Draw", "Sharpen", "Cut"],
+    "answer": "Erase",
+    "explanations": {
+      "Erase": "A pencil is used to write; an eraser is used to erase.",
+      "Draw": "A pencil can draw, but the eraser doesn’t draw.",
+      "Sharpen": "You sharpen a pencil, but that’s not what an eraser does.",
+      "Cut": "Cutting is not related to an eraser’s purpose."
+    }
+  },
+  {
+    "id": 4,
+    "subtype": "Function or Use",
+    "question": "Knife : Cut :: Spoon : ?",
+    "choices": ["Scoop", "Stir", "Peel", "Slice"],
+    "answer": "Scoop",
+    "explanations": {
+      "Scoop": "A knife cuts; a spoon scoops.",
+      "Stir": "Spoons can stir, but scooping is the more primary action.",
+      "Peel": "You peel with a peeler or knife, not a spoon.",
+      "Slice": "Slicing is done with knives, not spoons."
+    }
+  },
+  {
+    "id": 5,
+    "subtype": "Cause and Effect",
+    "question": "Ear : Hear :: Eye : ?",
+    "choices": ["See", "Smell", "Blink", "Look"],
+    "answer": "See",
+    "explanations": {
+      "See": "The ear is for hearing; the eye is for seeing.",
+      "Smell": "Smelling is done with the nose, not the eye.",
+      "Blink": "Blinking is a reflex, not the main function of the eye.",
+      "Look": "Looking is intentional, but seeing is the passive function like hearing."
+    }
+  },
+  {
+    "id": 6,
+    "subtype": "Part to Whole",
+    "question": "Cat : Meow :: Dog : ?",
+    "choices": ["Bark", "Run", "Purr", "Scratch"],
+    "answer": "Bark",
+    "explanations": {
+      "Bark": "Cats meow; dogs bark. It’s a sound analogy.",
+      "Run": "Running is an action, not a sound.",
+      "Purr": "Purring is something cats do, not dogs.",
+      "Scratch": "Scratching is a behavior, not a vocal sound."
+    }
+  },
+  {
+    "id": 7,
+    "subtype": "Object to Action",
+    "question": "Sun : Day :: Moon : ?",
+    "choices": ["Night", "Sky", "Star", "Shine"],
+    "answer": "Night",
+    "explanations": {
+      "Night": "The sun is visible during the day; the moon is typically visible at night.",
+      "Sky": "Both are in the sky, but this doesn’t reflect the same relationship.",
+      "Star": "The moon is not a star.",
+      "Shine": "Both shine, but that doesn’t create a contrast like day and night."
+    }
+  },
+  {
+    "id": 8,
+    "subtype": "Tool to Function",
+    "question": "Teacher : School :: Doctor : ?",
+    "choices": ["Hospital", "Medicine", "Nurse", "Sick"],
+    "answer": "Hospital",
+    "explanations": {
+      "Hospital": "A teacher works at a school; a doctor works at a hospital.",
+      "Medicine": "Doctors use medicine, but the analogy is about workplace.",
+      "Nurse": "A nurse is a profession, not a location.",
+      "Sick": "Doctors treat the sick, but that’s not the place they work."
+    }
+  },
+  {
+    "id": 9,
+    "subtype": "Symbol to Concept",
+    "question": "Clock : Time :: Thermometer : ?",
+    "choices": ["Temperature", "Degree", "Cold", "Weather"],
+    "answer": "Temperature",
+    "explanations": {
+      "Temperature": "A clock measures time; a thermometer measures temperature.",
+      "Degree": "Degrees are units, not what the thermometer directly measures.",
+      "Cold": "Cold is a feeling or condition, not a measurable quantity.",
+      "Weather": "Weather includes temperature, but is broader."
+    }
+  },
+  {
+    "id": 10,
+    "subtype": "Rhyming",
+    "question": "Rain : Wet :: Sun : ?",
+    "choices": ["Hot", "Dry", "Warm", "Shine"],
+    "answer": "Hot",
+    "explanations": {
+      "Hot": "Rain makes things wet; the sun makes things hot.",
+      "Dry": "Sun can dry, but it directly causes heat.",
+      "Warm": "Warm is milder than hot, which is more directly caused by the sun.",
+      "Shine": "Shining is visual, not a physical effect like wetness or heat."
+    }
+  },
+  {
+    "id": 11,
+    "subtype": "Category to Member",
+    "question": "Baby : Cry :: Laugh : ?",
+    "choices": ["Joke", "Sad", "Tear", "Smile"],
+    "answer": "Joke",
+    "explanations": {
+      "Joke": "Babies cry as a response; jokes cause laughter.",
+      "Sad": "Sadness causes crying, not laughter.",
+      "Tear": "Tears are effects, not causes.",
+      "Smile": "Smiling is related to laughter but not the cause."
+    }
+  },
+  {
+    "id": 12,
+    "subtype": "Degree or Intensity",
+    "question": "Sugar : Sweet :: Lemon : ?",
+    "choices": ["Sour", "Bitter", "Yellow", "Fruit"],
+    "answer": "Sour",
+    "explanations": {
+      "Sour": "Sugar tastes sweet; lemons taste sour.",
+      "Bitter": "Bitter is not typically associated with lemons.",
+      "Yellow": "That's the color, not taste.",
+      "Fruit": "That’s the category, not a flavor."
+    }
+  },
+  {
+    "id": 13,
+    "subtype": "Sequence or Development",
+    "question": "Shirt : Button :: Shoe : ?",
+    "choices": ["Lace", "Sock", "Foot", "Tie"],
+    "answer": "Lace",
+    "explanations": {
+      "Lace": "Shirts use buttons to fasten; shoes use laces.",
+      "Sock": "A sock goes inside a shoe, not used to fasten.",
+      "Foot": "Foot wears the shoe, not part of the fastening system.",
+      "Tie": "Ties are worn around the neck, not part of a shoe."
+    }
+  },
+  {
+    "id": 14,
+    "subtype": "Creator to Work",
+    "question": "Eye : See :: Nose : ?",
+    "choices": ["Smell", "Breathe", "Taste", "Sniff"],
+    "answer": "Smell",
+    "explanations": {
+      "Smell": "Eyes are for seeing; noses are for smelling.",
+      "Breathe": "Breathing is a secondary function of the nose.",
+      "Taste": "Taste involves the tongue.",
+      "Sniff": "Sniff is an action, not the general sense."
+    }
+  },
+  {
+    "id": 15,
+    "subtype": "Part to Whole",
+    "question": "Bicycle : Pedal :: Car : ?",
+    "choices": ["Gas", "Wheel", "Steering", "Engine"],
+    "answer": "Engine",
+    "explanations": {
+      "Engine": "Bicycles move using pedals; cars move using engines.",
+      "Gas": "Gas powers the engine, but isn't the moving mechanism itself.",
+      "Wheel": "Both have wheels, but that’s not what powers motion.",
+      "Steering": "Steering guides, not propels."
+    }
+  }
+]
