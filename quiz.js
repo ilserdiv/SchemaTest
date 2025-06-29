@@ -73,11 +73,14 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         }
 
-        const correctFormatted = `${correctPair.A} : ${correctPair.B}`;
+        const reverse = Math.random() < 0.5;
+        const qA = reverse ? questionPair.B : questionPair.A;
+        const qB = reverse ? questionPair.A : questionPair.B;
+        const correctFormatted = reverse ? `${correctPair.B} : ${correctPair.A}` : `${correctPair.A} : ${correctPair.B}`;
         const allChoices = [...wrongChoices, correctFormatted].sort(() => Math.random() - 0.5);
 
         questions.push({
-          display: `${questionPair.A} : ${questionPair.B} :: ? : ?`,
+          display: `${qA} : ${qB} :: ? : ?`,
           choices: allChoices,
           correct: correctFormatted,
           name: `question-${i}`
@@ -149,4 +152,3 @@ function updateTimerDisplay() {
 function submitQuiz() {
   document.getElementById('quiz-form').requestSubmit();
 }
-
