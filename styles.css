@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans&display=swap');
 
+/* === Global Reset & Fonts === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,12 +8,16 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   background-color: #0b0f1a;
   color: #e0f7fa;
-  padding: 40px 20px;
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* === Landing Page Styles === */
 .landing-container {
   max-width: 900px;
   margin: auto;
@@ -28,7 +33,6 @@ header {
 }
 
 .logo {
-  font-family: 'Orbitron', sans-serif;
   font-size: 42px;
   color: #00ffe1;
   text-shadow: 0 0 5px #00ffe1;
@@ -79,7 +83,7 @@ p {
   margin-top: 30px;
 }
 
-button {
+.cta-buttons button {
   background-color: #00ffe1;
   color: #0b0f1a;
   border: none;
@@ -93,12 +97,12 @@ button {
   box-shadow: 0 0 6px #00ffe1;
 }
 
-button:hover:enabled {
+.cta-buttons button:hover:enabled {
   background-color: #0ff;
   transform: scale(1.05);
 }
 
-button:disabled {
+.cta-buttons button:disabled {
   background-color: #444;
   color: #999;
   cursor: not-allowed;
@@ -109,50 +113,81 @@ a {
   text-decoration: none;
 }
 
-.selector-container {
-  max-width: 600px;
-  margin: 100px auto;
-  padding: 30px;
+/* === Tests Page Styles === */
+.tests-container {
+  width: 100%;
+  max-width: 700px;
   text-align: center;
-  background-color: rgba(15, 20, 30, 0.6);
-  border: 2px solid #00ffe1;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  padding: 30px;
 }
 
-.button-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  width: 100%;
+/* Back to Home Link */
+.back-to-main {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #00ffe1;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.button-group button,
-.button-group a > button {
-  width: 100%;
+/* Common Category Buttons (Main + Sub) */
+.category-button {
+  width: 260px;
   min-height: 48px;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
   background-color: #00ffe1;
   color: #0b0f1a;
-  font-size: 14px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 0 6px #00ffe1;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.button-group button:disabled {
+.category-button:hover:enabled {
+  background-color: #0ff;
+  transform: scale(1.03);
+}
+
+.category-button:disabled {
   background-color: #333;
   color: #999;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-.button-group button:hover:not(:disabled) {
-  background-color: #0ff;
-  transform: scale(1.05);
+/* Layout for Category Groups */
+#main-categories,
+.subcategories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 30px;
+}
+
+/* Back Button for Subcategories */
+.back-btn {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #0b0f1a;
+  border: 1px dashed #00ffe1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.03);
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
 }

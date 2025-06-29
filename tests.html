@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Select a Test | SchemaTest</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="tests.js"></script>
+  <meta charset="UTF-8">
+  <title>SchemaTest - Take a Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="selector-container">
-    <h1>🧠 Choose Your Subject</h1>
+  <div class="tests-container">
+    <!-- 🔁 Back to Main Page -->
+    <a href="index.html" class="back-to-main">← Back to Home</a>
 
-    <!-- Main Category Buttons -->
-    <div id="main-categories" class="button-group">
-      <button onclick="showSubcategories('english')">English</button>
-      <button disabled>Math</button>
-      <button disabled>Other</button>
+    <h1>Select a Subject</h1>
+
+    <div class="test-section" id="main-categories">
+      <button class="category-button" onclick="showCategory('english')">English</button>
+      <button class="category-button" disabled>Math</button>
+      <button class="category-button" disabled>Other</button>
     </div>
 
-    <!-- English Subcategories -->
-    <div id="english-subcategories" class="button-group" style="display: none;">
+    <div class="test-section hidden" id="english-subcategories">
       <h2>English Categories</h2>
-      <button disabled>Logical Fallacies</button>
-      <button disabled>Assumption & Conclusion</button>
-      <button disabled>Grammar</button>
-      <button disabled>Vocabulary</button>
-      <a href="test.html?category=word-analogy"><button>Word Analogy</button></a>
-      <button disabled>Sequences</button>
-      <button onclick="goBackToMain()">⬅ Back</button>
+      <div class="subcategories">
+        <button class="category-button">Vocabulary</button>
+        <button class="category-button">Word Analogy</button>
+        <button class="category-button">Grammar</button>
+        <button class="category-button">Sequence</button>
+        <button class="category-button">Logical Fallacies</button>
+        <button class="category-button">Assumption & Conclusion</button>
+      </div>
+
+      <!-- ⬅ Back button -->
+      <button class="back-btn" onclick="goBack()">← Back</button>
     </div>
   </div>
+
+<script src="tests.js"></script>
 </body>
 </html>
