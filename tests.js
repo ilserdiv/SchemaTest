@@ -21,3 +21,23 @@ function goBack() {
     }
   });
 }
+
+function startQuiz(category, level) {
+  // Save selection to localStorage
+  localStorage.setItem('quizCategory', category);
+  localStorage.setItem('quizLevel', level);
+  // Redirect to the quiz page
+  window.location.href = 'quiz.html';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.subcategory-btn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedCategory = btn.getAttribute('data-category');
+      localStorage.setItem('quizCategory', selectedCategory);
+      window.location.href = 'quiz.html';
+    });
+  });
+});

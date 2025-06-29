@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SchemaTest: CSE quiz</title>
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/quiz.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="back-wrapper">
+      <a href="tests.html" class="back-to-main">← Back to Categories</a>
+    </div>
+
+    <div class="quiz-header">
+      <h2 id="quiz-title"></h2>
+      <p>This quiz has 10 questions. You will have 10 minutes to complete it.</p>
+    </div>
+
+    <div class="quiz-controls">
+      <div class="timer" id="timer">Time Left: 10:00</div>
+      <button id="start-btn">Start Quiz</button>
+      <button id="submit-btn" class="hidden">Submit Answers</button>
+    </div>
+
+    <form id="quiz-form">
+      <div id="questions-wrapper"></div>
+    </form>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

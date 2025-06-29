@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SchemaTest - Take a Test</title>
+  <title>SchemaTest: CSE categories</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/tests.css">
 </head>
 <body>
   <div class="tests-container">
@@ -19,22 +20,22 @@
       <button class="category-button" disabled>Other</button>
     </div>
 
+    <!-- English Subcategories -->
     <div class="test-section hidden" id="english-subcategories">
       <h2>English Categories</h2>
       <div class="subcategories">
-        <button class="category-button">Vocabulary</button>
-        <button class="category-button">Word Analogy</button>
-        <button class="category-button">Grammar</button>
-        <button class="category-button">Sequence</button>
-        <button class="category-button">Logical Fallacies</button>
-        <button class="category-button">Assumption & Conclusion</button>
+        <button class="subcategory-btn category-button" data-category="eng-vocabulary">Vocabulary</button>
+        <button class="subcategory-btn category-button" data-category="eng-word-analogy">Word Analogy</button>
+        <button class="subcategory-btn category-button" data-category="eng-grammar">Grammar</button>
+        <button class="subcategory-btn category-button" data-category="eng-sequence">Sequence</button>
+        <button class="subcategory-btn category-button" data-category="eng-logical-fallacies">Logical Fallacies</button>
+        <button class="subcategory-btn category-button" data-category="eng-assumptions-conclusions">Assumption & Conclusion</button>
       </div>
 
-      <!-- ⬅ Back button -->
       <button class="back-btn" onclick="goBack()">← Back</button>
     </div>
   </div>
 
-<script src="tests.js"></script>
+  <script src="tests.js"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+[
+{"subtype":"Antonym","pairs":[{"A":"Brave","B":"Cowardly"},{"A":"Generous","B":"Greedy"},{"A":"Polite","B":"Rude"},
+{"A":"Legal","B":"Illegal"},{"A":"Neat","B":"Messy"},{"A":"Optimist","B":"Pessimist"},{"A":"Organized","B":"Disorganized"},
+{"A":"Rough","B":"Smooth"},{"A":"Advance","B":"Retreat"},{"A":"Beautiful","B":"Ugly"},{"A":"Better","B":"Worse"},
+{"A":"Cheap","B":"Expensive"},{"A":"Healthy","B":"Sick"},{"A":"Important","B":"Trivial"},{"A":"Kind","B":"Cruel"},
+{"A":"Modern","B":"Ancient"},{"A":"Natural","B":"Artificial"},{"A":"Normal","B":"Abnormal"},{"A":"Peace","B":"War"},
+{"A":"Permanent","B":"Temporary"},{"A":"Possible","B":"Impossible"},{"A":"Real","B":"Fake"},{"A":"Respect","B":"Disrespect"},
+{"A":"Safe","B":"Risky"},{"A":"Satisfied","B":"Unsatisfied"}]}
+,
+{"subtype":"Synonym","pairs":[{"A":"Get","B":"Receive"},{"A":"Go","B":"Depart"},{"A":"Look","B":"Glance"},
+{"A":"Run","B":"Sprint"},{"A":"Walk","B":"Stroll"},{"A":"Jump","B":"Leap"},{"A":"Fix","B":"Repair"},
+{"A":"Build","B":"Construct"},{"A":"Eat","B":"Consume"},{"A":"Drink","B":"Sip"},{"A":"Clean","B":"Tidy"},
+{"A":"Dirty","B":"Filthy"},{"A":"Bright","B":"Luminous"},{"A":"Dark","B":"Dim"},{"A":"Sleep","B":"Slumber"},
+{"A":"Cry","B":"Weep"},{"A":"Laugh","B":"Giggle"},{"A":"Throw","B":"Toss"},{"A":"Catch","B":"Grab"},
+{"A":"Strong","B":"Sturdy"},{"A":"Weak","B":"Feeble"},{"A":"Old","B":"Ancient"},{"A":"Young","B":"Youthful"},
+{"A":"Quiet","B":"Silent"},{"A":"Loud","B":"Noisy"}]}
+]

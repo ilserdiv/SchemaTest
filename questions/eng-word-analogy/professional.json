@@ -1,0 +1,17 @@
+[
+{"subtype":"Antonym","pairs":[{"A":"Adhere","B":"Repel"},{"A":"Conserve","B":"Waste"},{"A":"Praise","B":"Condemn"},
+{"A":"Expand","B":"Contract"},{"A":"Diligent","B":"Negligent"},{"A":"Transparent","B":"Opaque"},{"A":"Abundant","B":"Scarce"},
+{"A":"Elevate","B":"Lower"},{"A":"Fortify","B":"Weaken"},{"A":"Encourage","B":"Discourage"},{"A":"Harmonious","B":"Discordant"},
+{"A":"Legitimate","B":"Illegitimate"},{"A":"Prosper","B":"Decline"},{"A":"Refine","B":"Pollute"},{"A":"Secure","B":"Vulnerable"},
+{"A":"Cooperate","B":"Resist"},{"A":"Approve","B":"Reject"},{"A":"Honor","B":"Disgrace"},{"A":"Comply","B":"Defy"},
+{"A":"Include","B":"Exclude"},{"A":"Integrate","B":"Isolate"},{"A":"Maintain","B":"Abandon"},{"A":"Stabilize","B":"Destabilize"},
+{"A":"Permit","B":"Forbid"},{"A":"Reinforce","B":"Undermine"}]}
+,
+{"subtype":"Synonym","pairs":[{"A":"Brave","B":"Courageous"},{"A":"Kind","B":"Nice"},{"A":"Mean","B":"Cruel"},
+{"A":"Fast","B":"Rapid"},{"A":"Slow","B":"Sluggish"},{"A":"Neat","B":"Orderly"},{"A":"Messy","B":"Untidy"},
+{"A":"Bright","B":"Radiant"},{"A":"Dark","B":"Gloomy"},{"A":"Sharp","B":"Pointed"},{"A":"Flat","B":"Level"},
+{"A":"Rich","B":"Wealthy"},{"A":"Poor","B":"Needy"},{"A":"Tired","B":"Weary"},{"A":"Hungry","B":"Starving"},
+{"A":"Beautiful","B":"Attractive"},{"A":"Ugly","B":"Unattractive"},{"A":"Easy","B":"Effortless"},
+{"A":"Complicated","B":"Complex"},{"A":"Important","B":"Significant"},{"A":"Unimportant","B":"Trivial"},
+{"A":"Quiet","B":"Mute"},{"A":"Loud","B":"Boisterous"},{"A":"Nice","B":"Pleasant"},{"A":"Scared","B":"Frightened"}]}
+]

@@ -1,0 +1,67 @@
+/* === Tests Page Styles === */
+
+.tests-container {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  padding: 30px;
+  margin: auto;
+}
+
+.back-to-main {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #00ffe1;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Common Category Buttons (Main + Sub) */
+.category-button {
+  width: 260px;
+  min-height: 48px;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #00ffe1;
+  color: #0b0f1a;
+  box-shadow: 0 0 6px #00ffe1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-button:hover:enabled {
+  background-color: #0ff;
+  transform: scale(1.03);
+}
+
+.category-button:disabled {
+  background-color: #333;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#main-categories,
+.subcategories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 30px;
+}
+
+.back-btn {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #0b0f1a;
+  border: 1px dashed #00ffe1;
+  border-radius: 6px;
+}
+
+.back-btn:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.03);
+}
