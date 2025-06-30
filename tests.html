@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <title>SchemaTest: CSE categories</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/tests.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="tests-container">
@@ -14,22 +13,23 @@
 
     <h1>Select a Subject</h1>
 
-    <div class="test-section" id="main-categories">
-      <button class="category-button" onclick="showCategory('english')">English</button>
-      <button class="category-button" disabled>Math</button>
-      <button class="category-button" disabled>Other</button>
+    <!-- Main Categories -->
+    <div class="tiles-grid" id="main-categories">
+      <div class="tile" onclick="showCategory('english')">English</div>
+      <div class="tile disabled">Math</div>
+      <div class="tile disabled">Other</div>
     </div>
 
     <!-- English Subcategories -->
     <div class="test-section hidden" id="english-subcategories">
       <h2>English Categories</h2>
-      <div class="subcategories">
-        <button class="subcategory-btn category-button" data-category="eng-vocabulary">Vocabulary</button>
-        <button class="subcategory-btn category-button" data-category="eng-word-analogy">Word Analogy</button>
-        <button class="subcategory-btn category-button" data-category="eng-grammar">Grammar</button>
-        <button class="subcategory-btn category-button" data-category="eng-sequence">Sequence</button>
-        <button class="subcategory-btn category-button" data-category="eng-logical-fallacies">Logical Fallacies</button>
-        <button class="subcategory-btn category-button" data-category="eng-assumptions-conclusions">Assumption & Conclusion</button>
+      <div class="tiles-grid subcategories">
+        <div class="tile subcategory-btn" data-category="eng-vocabulary">Vocabulary</div>
+        <div class="tile subcategory-btn" data-category="eng-word-analogy">Word Analogy</div>
+        <div class="tile subcategory-btn" data-category="eng-grammar">Grammar</div>
+        <div class="tile subcategory-btn" data-category="eng-sequence">Sequence</div>
+        <div class="tile subcategory-btn" data-category="eng-logical-fallacies">Logical Fallacies</div>
+        <div class="tile subcategory-btn" data-category="eng-assumptions-conclusions">Assumption & Conclusion</div>
       </div>
 
       <button class="back-btn" onclick="goBack()">← Back</button>

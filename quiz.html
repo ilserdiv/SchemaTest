@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SchemaTest: CSE quiz</title>
-  <link rel="stylesheet" href="./styles/base.css" />
-  <link rel="stylesheet" href="./styles/quiz.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="quiz-container">
@@ -21,7 +20,7 @@
     <div class="quiz-controls">
       <div class="timer" id="timer">Time Left: 10:00</div>
       <button id="start-btn">Start Quiz</button>
-      <button id="submit-btn" class="hidden">Submit Answers</button>
+      <button id="submit-btn" class="hidden" type="submit" form="quiz-form">Submit Answers</button>
     </div>
 
     <form id="quiz-form">

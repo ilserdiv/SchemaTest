@@ -80,14 +80,6 @@
 {"A":"Green Room","B":"Performer"},{"A":"Studio","B":"Camera"},{"A":"Research Facility","B":"Specimen"},
 {"A":"Server","B":"Process"}]}
 ,
-{"subtype":"Tool to Action","pairs":[{"A":"Altimeter","B":"Gauge"},{"A":"Laser","B":"Cut"},{"A":"Welding Torch","B":"Fuse"},
-{"A":"Pipette","B":"Transfer"},{"A":"Crane","B":"Lift"},{"A":"Router","B":"Transmit"},{"A":"Oscilloscope","B":"Monitor"},
-{"A":"Anemometer","B":"Detect"},{"A":"Multimeter","B":"Test"},{"A":"Scalpel","B":"Incise"},{"A":"Trowel","B":"Plaster"},
-{"A":"Sander","B":"Smooth"},{"A":"Chisel","B":"Carve"},{"A":"Plunger","B":"Unclog"},{"A":"Hoe","B":"Cultivate"},
-{"A":"Sprinkler","B":"Irrigate"},{"A":"Seeder","B":"Plant"},{"A":"Spatula","B":"Flip"},{"A":"Autoclave","B":"Sterilize"},
-{"A":"Clamp","B":"Secure"},{"A":"Soldering Iron","B":"Join"},{"A":"Pallet Jack","B":"Move"},{"A":"Crucible","B":"Melt"},
-{"A":"Caliper","B":"Measure"},{"A":"Airbrush","B":"Spray"}]}
-,
 {"subtype":"Profession to Object","pairs":[{"A":"Architect","B":"Blueprint"},{"A":"Engineer","B":"Design"},
 {"A":"Programmer","B":"Code"},{"A":"Statistician","B":"Data"},{"A":"Economist","B":"Markets"},{"A":"Geologist","B":"Rocks"},
 {"A":"Astronomer","B":"Stars"},{"A":"Physicist","B":"Particles"},{"A":"Biologist","B":"Organisms"},

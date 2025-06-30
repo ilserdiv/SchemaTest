@@ -76,14 +76,6 @@
 {"A":"Field","B":"Corn"},{"A":"Arena","B":"Boxers"},{"A":"Chapel","B":"Minister"},{"A":"Cafeteria","B":"Tray"},
 {"A":"Jail","B":"Inmate"},{"A":"Market","B":"Vegetables"},{"A":"Court","B":"Lawyer"}]}
 ,
-{"subtype":"Tool to Action","pairs":[{"A":"Stethoscope","B":"Listen"},{"A":"Thermometer","B":"Measure"},
-{"A":"Telescope","B":"Observe"},{"A":"Measuring Tape","B":"Measure"},{"A":"Binoculars","B":"View"},
-{"A":"Typewriter","B":"Type"},{"A":"Compass","B":"Draw"},{"A":"Scale","B":"Weigh"},{"A":"Lawnmower","B":"Trim"},
-{"A":"Nailcutter","B":"Clip"},{"A":"Ladle","B":"Serve"},{"A":"Mixer","B":"Blend"},{"A":"Vacuum","B":"Clean"},
-{"A":"Sprayer","B":"Disperse"},{"A":"Microscope","B":"Examine"},{"A":"Tongs","B":"Grip"},{"A":"Printer","B":"Print"},
-{"A":"Scanner","B":"Scan"},{"A":"Torch","B":"Shine"},{"A":"Syringe","B":"Inject"},{"A":"Lighter","B":"Ignite"},
-{"A":"Glove","B":"Protect"},{"A":"Helmet","B":"Shield"},{"A":"Keyboard","B":"Input"},{"A":"Projector","B":"Display"}]}
-,
 {"subtype":"Profession to Object","pairs":[{"A":"Scientist","B":"Experiments"},{"A":"Librarian","B":"Books"},
 {"A":"Journalist","B":"News"},{"A":"Engineer","B":"Machines"},{"A":"Director","B":"Film"},{"A":"Composer","B":"Music"},
 {"A":"Sculptor","B":"Statue"},{"A":"Tailor","B":"Suits"},{"A":"Seamstress","B":"Fabric"},{"A":"Translator","B":"Text"},

@@ -71,14 +71,6 @@
 {"A":"Bedroom","B":"Pillow"},{"A":"Living Room","B":"Sofa"},{"A":"Bathroom","B":"Sink"},{"A":"Bakery","B":"Bread"},
 {"A":"Cinema","B":"Movie"},{"A":"Store","B":"Groceries"}]}
 ,
-{"subtype":"Tool to Action","pairs":[{"A":"Broom","B":"Sweep"},{"A":"Scissors","B":"Cut"},{"A":"Pen","B":"Write"},
-{"A":"Spoon","B":"Eat"},{"A":"Shovel","B":"Dig"},{"A":"Eraser","B":"Erase"},{"A":"Brush","B":"Paint"},
-{"A":"Hammer","B":"Pound"},{"A":"Needle","B":"Sew"},{"A":"Knife","B":"Slice"},{"A":"Comb","B":"Style"},
-{"A":"Camera","B":"Photograph"},{"A":"Phone","B":"Call"},{"A":"Key","B":"Unlock"},{"A":"Toothbrush","B":"Clean"},
-{"A":"Whistle","B":"Blow"},{"A":"Rake","B":"Gather"},{"A":"Remote","B":"Control"},{"A":"Bucket","B":"Carry"},
-{"A":"Wrench","B":"Tighten"},{"A":"Lantern","B":"Illuminate"},{"A":"Microwave","B":"Heat"},{"A":"Fan","B":"Cool"},
-{"A":"Iron","B":"Press"},{"A":"Drill","B":"Bore"}]}
-,
 {"subtype":"Profession to Object","pairs":[{"A":"Teacher","B":"Students"},{"A":"Doctor","B":"Patients"},{"A":"Chef","B":"Food"},
 {"A":"Farmer","B":"Crops"},{"A":"Driver","B":"Vehicle"},{"A":"Artist","B":"Paintings"},{"A":"Photographer","B":"Pictures"},
 {"A":"Writer","B":"Stories"},{"A":"Carpenter","B":"Wood"},{"A":"Mechanic","B":"Engines"},{"A":"Musician","B":"Songs"},

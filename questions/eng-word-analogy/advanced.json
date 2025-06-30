@@ -89,15 +89,6 @@
 {"A":"Firing Range","B":"Ammunition"},{"A":"Meta-Repository","B":"Model"},{"A":"Orbital Station","B":"Astronaut"},
 {"A":"Field Station","B":"Ecologist"}]}
 ,
-{"subtype":"Tool to Action","pairs":[{"A":"Spectrometer","B":"Analyze"},{"A":"Algorithm","B":"Compute"},
-{"A":"Compiler","B":"Translate"},{"A":"Hashing Function","B":"Encrypt"},{"A":"Simulator","B":"Model"},
-{"A":"Accelerator","B":"Collide"},{"A":"Catalyst","B":"React"},{"A":"Neural Network","B":"Classify"},
-{"A":"Tuner","B":"Optimize"},{"A":"Injector","B":"Feed"},{"A":"Interpreter","B":"Parse"},{"A":"Cryostat","B":"Cool"},
-{"A":"Emulator","B":"Mimic"},{"A":"Lens Array","B":"Focus"},{"A":"EDA Tool","B":"Design"},{"A":"Tokenizer","B":"Segment"},
-{"A":"Heat Sink","B":"Dissipate"},{"A":"Compiler","B":"Transform"},{"A":"Debugger","B":"Trace"},{"A":"Actuator","B":"Move"},
-{"A":"Quantizer","B":"Digitize"},{"A":"Hydrophone","B":"Detect"},{"A":"Thermostat","B":"Regulate"},{"A":"Inkjet","B":"Dispense"},
-{"A":"Furnace","B":"Incinerate"}]}
-,
 {"subtype":"Profession to Object","pairs":[{"A":"Cryptographer","B":"Ciphers"},{"A":"Ethicist","B":"Morality"},
 {"A":"Demographer","B":"Populations"},{"A":"Algorithmist","B":"Problems"},{"A":"Actuary","B":"Risk"},
 {"A":"Pharmacologist","B":"Drugs"},{"A":"Bioinformatician","B":"Genomes"},{"A":"Philosopher","B":"Ideas"},
