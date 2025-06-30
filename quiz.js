@@ -162,6 +162,16 @@ function updateTimerDisplay() {
 }
 
 function submitQuiz() {
+  // Scroll to the top of the quiz
+  const firstQuestion = document.querySelector('.question');
+  if (firstQuestion) {
+    window.scrollTo({
+      top: firstQuestion.offsetTop - 60, // scroll a bit higher
+      behavior: 'smooth'
+    });
+  }
+
+  // Submit the form
   document.getElementById('quiz-form').requestSubmit();
 }
 
@@ -224,4 +234,6 @@ function evaluateAnswers() {
     box.append(exp1, yourAns, typeLine);
     qDiv.appendChild(box);
   });
+
+  
 }
