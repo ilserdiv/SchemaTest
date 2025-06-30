@@ -8,13 +8,13 @@ const CATEGORY_TITLES = {
 };
 
 const EXPLANATIONS = {
-  'Antonym': (a, b) => `${a} and ${b} are antonyms`,
-  'Synonym': (a, b) => `${a} and ${b} are synonyms`,
-  'Category to Member': (a, b) => `${b} belongs in the category, ${a}`,
-  'Cause and Effect': (a, b) => `${a} and ${b} has a cause-and-effect relationship`,
+  'Antonym': (a, b) => `${a} and ${b} have similiar meanings`,
+  'Synonym': (a, b) => `${a} and ${b} have opposite meanings`,
+  'Category to Member': (a, b) => `${b} belongs to ${a}`,
+  'Cause and Effect': (a, b) => `${a} causes ${b}`,
   'Function or Use': (a, b) => `${a} is used to ${b}`,
   'Part to Whole': (a, b) => `${a} is a part of ${b}`,
-  'Degree or Sequence': (a, b) => `${a} and ${b} has a degree/sequence relationship`,
+  'Degree or Sequence': (a, b) => `${a} comes before ${b} `,
   'Collective Noun': (a, b) => `A group of ${b} is called ${a}`,
   'Location or Setting': (a, b) => `${b} can be found in a ${a}`,
   'Profession to Object': (a, b) => `${a} is associated with the ${b}`
@@ -186,7 +186,7 @@ function evaluateAnswers() {
     labels.forEach(label => {
       const input = label.querySelector('input');
       if (input.value === question.correct) {
-        input.parentElement.classList.add('correct');
+        label.classList.add('correct');
       }
     });
 
@@ -194,36 +194,34 @@ function evaluateAnswers() {
 
     const userValue = selected.value;
     const userSubtype = selected.getAttribute('data-subtype');
-
     const [a, b] = question.questionWords;
     const [c, d] = userValue.split(' : ');
-    const explain1 = EXPLANATIONS[question.correctSubtype](a, b);
-    const explain2 = EXPLANATIONS[userSubtype](c, d);
+    const isCorrect = userValue === question.correct;
 
     const box = document.createElement('div');
     box.classList.add('explanation-box');
 
+    // First line – correct answer explanation
     const exp1 = document.createElement('p');
-    exp1.textContent = `Reference: ${explain1}`;
+    exp1.innerHTML = `<span class="subtype-label">${question.correctSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
     exp1.classList.add('explanation-line');
 
-    const isCorrect = userValue === question.correct;
+    // Second line – user's answer explanation
+    const yourAns = document.createElement('p');
+    yourAns.innerHTML = `<span class="subtype-label">${userSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[userSubtype](c, d)})</span>`;
+    yourAns.classList.add('answer-line');
+
+    // Third line – analogy match result
     const typeLine = document.createElement('p');
-    typeLine.textContent = `Analogy: "${question.correctSubtype}" : "${userSubtype}"`;
+    typeLine.textContent = isCorrect ? '✔Analogies match' : "✘Analogies don't match";
     typeLine.classList.add('analogy-line', isCorrect ? 'correct' : 'wrong');
 
     if (!isCorrect) {
       const fail = [...labels].find(label => label.querySelector('input').value === userValue);
-      fail.querySelector('input').parentElement.classList.add('wrong');
-
-      const yourAns = document.createElement('p');
-      yourAns.textContent = `Your answer: ${explain2}`;
-      yourAns.classList.add('answer-line');
-      box.append(exp1, yourAns, typeLine);
-    } else {
-      box.append(exp1, typeLine);
+      if (fail) fail.classList.add('wrong');
     }
 
+    box.append(exp1, yourAns, typeLine);
     qDiv.appendChild(box);
   });
 }

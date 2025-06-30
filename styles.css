@@ -255,19 +255,13 @@ ul {
 .answer-line {
   color: #008a8a;
 }
-.analogy-line {
+.analogy-line.correct {
+  color: #2ecc71; /* Green for match */
   font-weight: bold;
-  color: #005a5a;
 }
-.analogy-line.correct::after {
-  content: " ✔";
-  color: #2ecc71;
-  margin-left: 0.5rem;
-}
-.analogy-line.wrong::after {
-  content: " ✘";
-  color: #e74c3c;
-  margin-left: 0.5rem;
+.analogy-line.wrong {
+  color: #e74c3c; /* Red for mismatch */
+  font-weight: bold;
 }
 label.correct {
   border-left: 5px solid #2ecc71;
@@ -276,4 +270,13 @@ label.correct {
 label.wrong {
   border-left: 5px solid #e74c3c;
   background-color: #ffecec;
+}
+.subtype-label {
+  color: #008c8c;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+}
+.explanation-detail {
+  color: #008a8a;
+  font-weight: normal;
 }
