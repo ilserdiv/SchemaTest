@@ -8,8 +8,8 @@ const CATEGORY_TITLES = {
 };
 
 const EXPLANATIONS = {
-  'Antonym': (a, b) => `${a} and ${b} have similiar meanings`,
-  'Synonym': (a, b) => `${a} and ${b} have opposite meanings`,
+  'Antonym': (a, b) => `${a} and ${b} have opposite meanings`,
+  'Synonym': (a, b) => `${a} and ${b} have similar meanings`,
   'Category to Member': (a, b) => `${b} belongs to ${a}`,
   'Cause and Effect': (a, b) => `${a} causes ${b}`,
   'Function or Use': (a, b) => `${a} is used to ${b}`,
