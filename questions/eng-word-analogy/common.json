@@ -31,13 +31,12 @@
 {"A":"Reading","B":"Learning"},{"A":"Clapping","B":"Sound"},{"A":"Tickle","B":"Laugh"},{"A":"Raincloud","B":"Rain"},
 {"A":"Push","B":"Move"},{"A":"Falling","B":"Injury"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Pen","B":"Write"},{"A":"Scissors","B":"Cut"},{"A":"Spoon","B":"Eat"},
-{"A":"Chair","B":"Sit"},{"A":"Clock","B":"Tell Time"},{"A":"Phone","B":"Call"},{"A":"Camera","B":"Take Picture"},
-{"A":"Hammer","B":"Hit"},{"A":"Toothbrush","B":"Clean Teeth"},{"A":"Key","B":"Unlock"},{"A":"Knife","B":"Cut"},
-{"A":"Ruler","B":"Measure"},{"A":"Shoes","B":"Walk"},{"A":"Bed","B":"Sleep"},{"A":"Bottle","B":"Hold Water"},
-{"A":"Microwave","B":"Heat Food"},{"A":"Television","B":"Watch Shows"},{"A":"Mirror","B":"Reflect"},
-{"A":"Comb","B":"Style Hair"},{"A":"Oven","B":"Bake"},{"A":"Umbrella","B":"Block Rain"},{"A":"Fan","B":"Cool Down"},
-{"A":"Gloves","B":"Protect Hands"},{"A":"Car","B":"Drive"},{"A":"Book","B":"Read"}]}
+{"subtype":"Function or Use","pairs":[{"A":"Pen","B":"Write"},{"A":"Knife","B":"Cut"},{"A":"Shovel","B":"Dig"},
+{"A":"Hammer","B":"Pound"},{"A":"Eraser","B":"Erase"},{"A":"Ruler","B":"Measure"},{"A":"Camera","B":"Photograph"},
+{"A":"Brush","B":"Paint"},{"A":"Key","B":"Unlock"},{"A":"Axe","B":"Chop"},{"A":"Spoon","B":"Scoop"},{"A":"Phone","B":"Call"},
+{"A":"Clock","B":"Tell"},{"A":"Radio","B":"Broadcast"},{"A":"Book","B":"Read"},{"A":"Lantern","B":"Shine"},
+{"A":"Speaker","B":"Play"},{"A":"Fan","B":"Cool"},{"A":"Helmet","B":"Protect"},{"A":"Tent","B":"Shelter"},{"A":"Oven","B":"Bake"},
+{"A":"Straw","B":"Sip"},{"A":"Stapler","B":"Fasten"},{"A":"Glove","B":"Grip"},{"A":"Bell","B":"Ring"}]}
 ,
 {"subtype":"Part to Whole","pairs":[{"A":"Wheel","B":"Car"},{"A":"Page","B":"Book"},{"A":"Finger","B":"Hand"},
 {"A":"Petal","B":"Flower"},{"A":"Leaf","B":"Tree"},{"A":"Key","B":"Keyboard"},{"A":"Straw","B":"Broom"},

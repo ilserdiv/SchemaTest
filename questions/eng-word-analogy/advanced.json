@@ -41,18 +41,15 @@
 {"A":"Technological Singularity","B":"Human Redundancy"},{"A":"Immunosuppression","B":"Infection Risk"},
 {"A":"Alienation","B":"Worker Disengagement"},{"A":"Neural Stimulation","B":"Perception Shift"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Algorithm","B":"Solve Problems"},{"A":"Compiler","B":"Translate Code"},
-{"A":"Cryostat","B":"Preserve Samples"},{"A":"Spectroscope","B":"Examine Spectra"},{"A":"Actuator","B":"Trigger Movement"},
-{"A":"Turing Machine","B":"Simulate Computation"},{"A":"LIDAR","B":"Map Terrain"},{"A":"Catalyst","B":"Accelerate Reactions"},
-{"A":"Neural Network","B":"Model Intelligence"},{"A":"Cryptographic Key","B":"Secure Data"},
-{"A":"Sonar","B":"Detect Underwater Objects"},{"A":"Logic Gate","B":"Process Binary Input"},
-{"A":"Manipulator Arm","B":"Handle Materials"},{"A":"Biosensor","B":"Monitor Biomarkers"},
-{"A":"Mass Spectrometer","B":"Identify Compounds"},{"A":"Gantry Crane","B":"Move Loads"},
-{"A":"Virtual Machine","B":"Run Software"},{"A":"Deep Scanner","B":"Detect Anomalies"},
-{"A":"Electron Microscope","B":"View Nanostructures"},{"A":"Simulink","B":"Model Systems"},
-{"A":"Transducer","B":"Convert Signals"},{"A":"Biochip","B":"Analyze DNA"},{"A":"Machine Learning Model","B":"Predict Outcomes"},
-{"A":"Quantum Processor","B":"Compute States"},{"A":"Heat Sink","B":"Disperse Heat"}
-]}
+{"subtype": "Function or Use","pairs":[{"A": "Algorithm", "B": "Optimization"},{"A": "Compiler", "B": "Translation"},
+{"A": "Cryostat", "B": "Preservation"},{"A": "Spectroscope", "B": "Analysis"},{"A": "Actuator", "B": "Movement"},
+{"A": "Turing Machine", "B": "Simulation"},{"A": "LIDAR", "B": "Mapping"},{"A": "Catalyst", "B": "Acceleration"},
+{"A": "Neural Network", "B": "Inference"},{"A": "Cryptographic Key", "B": "Encryption"},{"A": "Sonar", "B": "Detection"},
+{"A": "Logic Gate", "B": "Computation"},{"A": "Manipulator Arm", "B": "Handling"},{"A": "Biosensor", "B": "Monitoring"},
+{"A": "Mass Spectrometer", "B": "Identification"},{"A": "Gantry Crane", "B": "Lifting"},{"A": "Virtual Machine", "B": "Execution"},
+{"A": "Deep Scanner", "B": "Scanning"},{"A": "Electron Microscope", "B": "Imaging"},{"A": "Simulink", "B": "Modeling"},
+{"A": "Transducer", "B": "Conversion"},{"A": "Biochip", "B": "Analysis"},{"A": "Machine Learning Model", "B": "Prediction"},
+{"A": "Quantum Processor", "B": "Computation"},{"A": "Heat Sink", "B": "Dissipation"}]}
 ,
 {"subtype":"Part to Whole","pairs":[{"A":"Quark","B":"Proton"},{"A":"Gene","B":"Chromosome"},{"A":"Axiom","B":"Proof"},
 {"A":"Pixel","B":"Bitmap"},{"A":"Glyph","B":"Font"},{"A":"Instruction","B":"Program"},{"A":"Function","B":"Algorithm"},

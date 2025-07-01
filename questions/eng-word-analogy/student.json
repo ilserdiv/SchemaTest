@@ -34,15 +34,13 @@
 {"A":"Support","B":"Confidence"},{"A":"Recklessness","B":"Accident"},{"A":"Watering","B":"Bloom"},
 {"A":"Storm","B":"Flooding"},{"A":"Procrastination","B":"Stress"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Calculator","B":"Compute"},{"A":"Stethoscope","B":"Listen"},
-{"A":"Keyboard","B":"Type"},{"A":"Paintbrush","B":"Paint"},{"A":"Thermometer","B":"Measure Temperature"},
-{"A":"Wrench","B":"Tighten"},{"A":"Compass","B":"Draw Circles"},{"A":"Printer","B":"Print Documents"},
-{"A":"Refrigerator","B":"Preserve Food"},{"A":"Speaker","B":"Play Sound"},{"A":"Lantern","B":"Illuminate"},
-{"A":"Helmet","B":"Protect Head"},{"A":"Stapler","B":"Bind Papers"},{"A":"Tablet","B":"Browse"},
-{"A":"Drill","B":"Make Holes"},{"A":"Air Conditioner","B":"Cool Air"},{"A":"Mop","B":"Clean Floor"},
-{"A":"Projector","B":"Display Images"},{"A":"Flute","B":"Play Music"},{"A":"Blender","B":"Mix"},
-{"A":"Pencil Sharpener","B":"Sharpen Pencils"},{"A":"Binoculars","B":"See Far"},{"A":"Crane","B":"Lift"},
-{"A":"Joystick","B":"Control"},{"A":"Extinguisher","B":"Put Out Fire"}]}
+{"subtype":"Function or Use","pairs":[{"A":"Compass","B":"Navigate"},{"A":"Printer","B":"Print"},{"A":"Thermometer","B":"Measure"},
+{"A":"Scanner","B":"Scan"},{"A":"Projector","B":"Display"},{"A":"Joystick","B":"Control"},{"A":"Helmet","B":"Shield"},
+{"A":"Magnet","B":"Attract"},{"A":"Calculator","B":"Compute"},{"A":"Keyboard","B":"Type"},{"A":"Wheelbarrow","B":"Transport"},
+{"A":"Needle","B":"Sew"},{"A":"Mirror","B":"Reflect"},{"A":"Trap","B":"Catch"},{"A":"Siren","B":"Alert"},
+{"A":"Anchor","B":"Stabilize"},{"A":"Router","B":"Connect"},{"A":"Timer","B":"Track"},{"A":"Sensor","B":"Detect"},
+{"A":"Drill","B":"Bore"},{"A":"Nozzle","B":"Spray"},{"A":"Chisel","B":"Carve"},{"A":"Battery","B":"Power"},
+{"A":"Microscope","B":"Magnify"},{"A":"Remote","B":"Operate"}]}
 ,
 {"subtype":"Part to Whole","pairs":[{"A":"Pixel","B":"Screen"},{"A":"Spoke","B":"Wheel"},{"A":"Chapter","B":"Novel"},
 {"A":"Rivet","B":"Bridge"},{"A":"Seed","B":"Fruit"},{"A":"String","B":"Guitar"},{"A":"Thread","B":"Fabric"},
