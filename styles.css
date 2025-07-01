@@ -1,4 +1,7 @@
-/* Fonts */
+/* =====================================
+   PHASE 0: Global Styles & Resets
+===================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap');
 
 * {
@@ -7,7 +10,6 @@
   box-sizing: border-box;
 }
 
-/* Body */
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: #e9fefc;
@@ -15,7 +17,12 @@ body {
   line-height: 1.6;
 }
 
-/* Links */
+.hidden { display: none !important; }
+
+/* =====================================
+   PHASE 1: Typography & UI Elements
+===================================== */
+
 a {
   color: #197b7b;
   text-decoration: none;
@@ -25,7 +32,6 @@ a:hover {
   color: #1aaea7;
 }
 
-/* Buttons */
 button {
   position: relative;
   overflow: hidden;
@@ -66,7 +72,6 @@ button:active::after {
   transition: 0s;
 }
 
-/* Headings */
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   color: #007878;
@@ -85,10 +90,10 @@ h3 {
   margin-top: 0.8rem;
 }
 
-/* Utility */
-.hidden { display: none !important; }
+/* =====================================
+   PHASE 2: Layout & Containers
+===================================== */
 
-/* === Layout Containers === */
 .landing-container,
 .tests-container,
 .quiz-container {
@@ -122,7 +127,6 @@ ul {
   color: #197b7b;
 }
 
-/* CTA buttons */
 .cta-buttons {
   display: flex;
   justify-content: center;
@@ -134,7 +138,6 @@ ul {
   cursor: pointer;
 }
 
-/* Tiles Grid */
 .tiles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -186,7 +189,10 @@ ul {
   margin-top: 2rem;
 }
 
-/* Quiz Controls */
+/* =====================================
+   PHASE 3: Quiz Core Styling
+===================================== */
+
 .quiz-controls {
   display: flex;
   justify-content: space-evenly;
@@ -203,7 +209,6 @@ ul {
   color: #007878;
 }
 
-/* Quiz Questions */
 .question {
   margin-bottom: 1.5rem;
   padding: 1rem;
@@ -214,6 +219,9 @@ ul {
 .question p {
   color: #005a5a;
   font-weight: bold;
+}
+.question-text {
+  font-size: 1.1rem;
 }
 .question label {
   display: block;
@@ -232,24 +240,36 @@ ul {
   transform: scale(0.98);
 }
 
-/* Answer Feedback */
+/* =====================================
+   PHASE 4: Feedback, Answers & Modal
+===================================== */
+
 .explanation-box {
-  background-color: #f2ffff;
-  border-left: 4px solid #00a2a2;
+  background-color: #fff9ec;
+  border: 1px solid #ffe7c7;
   padding: 0.75rem 1rem;
   margin-top: 1rem;
   border-radius: 6px;
+}
+.explanation-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #006d6d;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  border-bottom: 1px solid #bceaea;
+  padding-bottom: 0.2rem;
 }
 .explanation-line,
 .answer-line {
   color: #008a8a;
 }
 .analogy-line.correct {
-  color: #2ecc71; /* Green for match */
+  color: #2ecc71;
   font-weight: bold;
 }
 .analogy-line.wrong {
-  color: #e74c3c; /* Red for mismatch */
+  color: #e74c3c;
   font-weight: bold;
 }
 label.correct {
@@ -270,15 +290,54 @@ label.wrong {
   font-weight: normal;
 }
 
-#feedback-box {
-  display: none; 
-  border: 2px solid #333; 
-  padding: 16px; 
-  margin-top: 20px;
+/* Modal & Overlay */
+#feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: none;
 }
 
+#feedback-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 3px solid #00cccc;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+body.modal-active {
+  overflow: hidden;
+  height: 100%;
+}
+
+body.modal-active .quiz-container {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+#review-btn {
+  background: linear-gradient(to right, #1aaea7, #13c4b6);
+  color: white;
+}
+/* =====================================
+   PHASE 5: Colors & Utility Classes
+===================================== */
+
 .green-bright { color: #22c55e; font-weight: bold; }
-.green-soft { color: #86efac; }
+.green-soft { color: #15c55e; }
 .yellow { color: #facc15; }
 .orange { color: #f97316; }
 .red { color: #ef4444; font-weight: bold; }

@@ -31,10 +31,7 @@ let quizData = [];
 document.addEventListener('DOMContentLoaded', async () => {
   const startBtn = document.getElementById('start-btn');
   const submitBtn = document.getElementById('submit-btn');
-  const quizForm = document.getElementById('quiz-form');
-  const questionsWrapper = document.getElementById('questions-wrapper');
   const titleEl = document.getElementById('quiz-title');
-
   const LEVELS = ['common', 'student', 'professional', 'advanced'];
   const category = localStorage.getItem('quizCategory') || 'eng-word-analogy';
   const readableTitle = CATEGORY_TITLES[category] || 'Quiz';
@@ -53,9 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
 
         const allSubtypes = data.map(entry => entry.subtype);
-        const subtypeMap = Object.fromEntries(
-          data.map(entry => [entry.subtype, entry.pairs])
-        );
+        const subtypeMap = Object.fromEntries(data.map(entry => [entry.subtype, entry.pairs]));
 
         const subtype = allSubtypes[Math.floor(Math.random() * allSubtypes.length)];
         const questionPairs = subtypeMap[subtype];
@@ -91,15 +86,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         allChoices.sort(() => Math.random() - 0.5);
 
         quizData.push({
-          display: `${qA} : ${qB} :: ? : ?`,
+          display: `${qA} : ${qB} :: ____ : ____`,
           questionWords: [qA, qB],
           correct: correctFormatted,
           correctSubtype: subtype,
           choices: allChoices,
           name: `question-${i}`,
-          reversed: reverse // ✅ Track direction
+          reversed: reverse
         });
-
       } catch (err) {
         console.error(`Failed to load question ${i + 1} from ${url}:`, err);
       }
@@ -109,12 +103,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     startTimer();
   });
 
-  document.getElementById('submit-btn').addEventListener('click', () => {
-    submitQuiz();
-  });
-
-  document.getElementById('quiz-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // ✅ Prevent scroll bug
     clearInterval(timerInterval);
     evaluateAnswers();
     lockQuizForm();
@@ -122,15 +112,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function renderQuestions() {
-  const questionsWrapper = document.getElementById('questions-wrapper');
-  questionsWrapper.innerHTML = '';
+  const wrapper = document.getElementById('questions-wrapper');
+  wrapper.innerHTML = '';
 
   quizData.forEach((q, index) => {
     const qDiv = document.createElement('div');
     qDiv.classList.add('question');
 
     const qText = document.createElement('p');
-    qText.textContent = `${index + 1}. ${q.display}`;
+    qText.innerHTML = `<strong>${index + 1}. </strong> <span class="analogy-display">${q.display}</span>`;
+    qText.classList.add('question-text');
+
     qDiv.appendChild(qText);
 
     q.choices.forEach((choice, cIndex) => {
@@ -145,7 +137,7 @@ function renderQuestions() {
       qDiv.appendChild(label);
     });
 
-    questionsWrapper.appendChild(qDiv);
+    wrapper.appendChild(qDiv);
   });
 }
 
@@ -157,7 +149,8 @@ function startTimer() {
     totalTime--;
     if (totalTime <= 0) {
       clearInterval(timerInterval);
-      submitQuiz();
+      evaluateAnswers();
+      lockQuizForm();
     }
     updateTimerDisplay();
   }, 1000);
@@ -169,19 +162,7 @@ function updateTimerDisplay() {
   document.getElementById('timer').textContent = `Time Left: ${minutes}:${seconds}`;
 }
 
-// ========== Phase 3: Quiz Submission ==========
-
-function submitQuiz() {
-  const firstQuestion = document.querySelector('.question');
-  if (firstQuestion) {
-    window.scrollTo({
-      top: firstQuestion.offsetTop - 60,
-      behavior: 'smooth'
-    });
-  }
-
-  document.getElementById('quiz-form').requestSubmit();
-}
+// ========== Phase 3: Form Locking ==========
 
 function lockQuizForm() {
   const radios = document.querySelectorAll('#quiz-form input[type="radio"]');
@@ -195,7 +176,7 @@ function lockQuizForm() {
   submitBtn.classList.add('hidden');
 }
 
-// ========== Phase 4: Answer Evaluation + Explanations ==========
+// ========== Phase 4: Evaluation ==========
 
 function evaluateAnswers() {
   quizData.forEach((question, index) => {
@@ -203,7 +184,6 @@ function evaluateAnswers() {
     const qDiv = document.querySelectorAll('.question')[index];
     const labels = qDiv.querySelectorAll('label');
 
-    // Highlight the correct answer
     labels.forEach(label => {
       const input = label.querySelector('input');
       if (input.value === question.correct) {
@@ -211,53 +191,48 @@ function evaluateAnswers() {
       }
     });
 
-    // Skip if no answer selected
     if (!selected) return;
 
-    // Extract values from user's answer
     const userValue = selected.value;
     const userSubtype = selected.getAttribute('data-subtype');
     const reversed = question.reversed;
-
-    const [a, b] = reversed
-      ? [question.questionWords[1], question.questionWords[0]]
-      : question.questionWords;
-
+    const [a, b] = reversed ? [question.questionWords[1], question.questionWords[0]] : question.questionWords;
     const [c, d] = userValue.split(' : ');
     const isCorrect = userValue === question.correct;
 
-    // Store user answer and subtype in quizData
     question.userAnswer = userValue;
     question.userSubtype = userSubtype;
 
-    // Create explanation elements
     const box = document.createElement('div');
     box.classList.add('explanation-box');
 
+    const title = document.createElement('p');
+    title.textContent = 'Analogy Comparison';
+    title.classList.add('explanation-title');
+
     const exp1 = document.createElement('p');
-    exp1.innerHTML = `<span class="subtype-label">${question.correctSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
+    exp1.innerHTML = `QUESTION: <span class="subtype-label green-bright">${question.correctSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
     exp1.classList.add('explanation-line');
 
     const yourAns = document.createElement('p');
-    yourAns.innerHTML = `<span class="subtype-label">${userSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[userSubtype](c, d)})</span>`;
+    yourAns.innerHTML = `ANSWER: <span class="subtype-label green-soft">${userSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[userSubtype](c, d)})</span>`;
     yourAns.classList.add('answer-line');
 
     const typeLine = document.createElement('p');
     typeLine.textContent = isCorrect ? '✔ Analogies match' : "✘ Analogies don't match";
     typeLine.classList.add('analogy-line', isCorrect ? 'correct' : 'wrong');
 
-    // Highlight user's wrong answer
     if (!isCorrect) {
       const fail = [...labels].find(label => label.querySelector('input').value === userValue);
       if (fail) fail.classList.add('wrong');
     }
 
-    // Append all explanation lines
-    box.append(exp1, yourAns, typeLine);
+    box.append(title, exp1, yourAns, typeLine);
     qDiv.appendChild(box);
+
   });
 
-  // ========== Phase 5: Feedback Summary Box ==========
+  // ========== Phase 5: Feedback Box ==========
 
   const timeTaken = 10 * 60 - totalTime;
   let correctCount = 0;
@@ -275,13 +250,12 @@ function evaluateAnswers() {
   displayFeedbackBox(timeTaken, totalTime, tipList, correctCount);
 }
 
-
 // ========== Feedback Renderer ==========
 
 function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   const box = document.getElementById("feedback-box");
+  const overlay = document.getElementById("feedback-overlay");
 
-  // Score performance color
   let scoreColor = '';
   if (correctCount >= 9) scoreColor = 'green-bright';
   else if (correctCount >= 7) scoreColor = 'green-soft';
@@ -289,7 +263,6 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   else if (correctCount >= 3) scoreColor = 'orange';
   else scoreColor = 'red';
 
-  // Time performance color
   let timeColor = '';
   if (timeSpent < 150) timeColor = 'green-bright';
   else if (timeSpent < 300) timeColor = 'green-soft';
@@ -297,7 +270,7 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   else if (timeSpent < 900) timeColor = 'orange';
   else timeColor = 'red';
 
-  const shownTips = tips.slice(0, 3); // Max of 3
+  const shownTips = tips.slice(0, 3);
   const verdictText = shownTips.length
     ? `💡<strong class="yellow">LEARN MORE ABOUT</strong> [<span class="red">${shownTips.join(', ')}</span>] <strong class="yellow">Categories</strong>`
     : '🎉 Perfect! You are a master of word analogies.';
@@ -309,8 +282,27 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
       <p><strong>⏱️ Time Spent:</strong> <span class="${timeColor}">${timeSpent}s</span></p>
       <p><strong>⏳ Time Left:</strong> <span class="${timeColor}">${timeLeft}s</span></p>
       <p>${verdictText}</p>
+      <div style="text-align: center; margin-top: 1rem;">
+        <button id="review-btn">Review Answers</button>
+      </div>
     </div>
   `;
 
   box.style.display = 'block';
+  overlay.style.display = 'block';
+  document.body.classList.add('modal-active');
+
+  document.getElementById('review-btn').addEventListener('click', () => {
+    box.style.display = 'none';
+    overlay.style.display = 'none';
+    document.body.classList.remove('modal-active');
+
+    const firstQuestion = document.querySelector('.question');
+    if (firstQuestion) {
+      window.scrollTo({
+        top: firstQuestion.offsetTop - 60,
+        behavior: 'smooth'
+      });
+    }
+  });
 }
