@@ -46,12 +46,6 @@ button:active {
   transform: scale(0.97);
   box-shadow: 0 0 20px rgba(0, 200, 200, 0.4);
 }
-button:disabled {
-  background-color: #ddd;
-  border-color: #ccc;
-  color: #999;
-  cursor: not-allowed;
-}
 button::after {
   content: "";
   position: absolute;
@@ -124,8 +118,7 @@ section {
 }
 
 ul {
-  list-style-type: square;
-  margin-left: 1.2rem;
+  list-style-type: none;
   color: #197b7b;
 }
 
@@ -138,6 +131,7 @@ ul {
 .cta-buttons button {
   font-size: 1.2rem;
   padding: 0.8rem 1.6rem;
+  cursor: pointer;
 }
 
 /* Tiles Grid */
@@ -185,11 +179,6 @@ ul {
   transform: translateY(-3px);
   box-shadow: 0 0 18px rgba(0, 200, 255, 0.4);
 }
-.tile.disabled {
-  background-color: #eee;
-  color: #999;
-  cursor: not-allowed;
-}
 .subcategories {
   margin-top: 2rem;
 }
@@ -200,7 +189,7 @@ ul {
 /* Quiz Controls */
 .quiz-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   position: sticky;
   top: 0;

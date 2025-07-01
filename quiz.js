@@ -12,11 +12,11 @@ const CATEGORY_TITLES = {
 const EXPLANATIONS = {
   'Antonyms': (a, b) => `${a} and ${b} have opposite meanings`,
   'Synonyms': (a, b) => `${a} and ${b} have similar meanings`,
-  'Category to Member': (a, b) => `${b} belongs to ${a}`,
+  'Category to Member': (a, b) => `${b} belongs in the category, ${a}`,
   'Cause and Effect': (a, b) => `${a} causes ${b}`,
   'Function or Use': (a, b) => `${a} is used to ${b}`,
   'Part to Whole': (a, b) => `${a} is a part of ${b}`,
-  'Degree or Sequence': (a, b) => `${a} comes before ${b}`,
+  'Degree or Sequence': (a, b) => `${a} comes before ${b} in progression`,
   'Collective Noun': (a, b) => `A group of ${b} is called ${a}`,
   'Location or Setting': (a, b) => `${b} can be found in a ${a}`,
   'Profession to Object': (a, b) => `${a} is associated with the ${b}`
@@ -96,7 +96,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           correct: correctFormatted,
           correctSubtype: subtype,
           choices: allChoices,
-          name: `question-${i}`
+          name: `question-${i}`,
+          reversed: reverse // ✅ Track direction
         });
 
       } catch (err) {
@@ -202,6 +203,7 @@ function evaluateAnswers() {
     const qDiv = document.querySelectorAll('.question')[index];
     const labels = qDiv.querySelectorAll('label');
 
+    // Highlight the correct answer
     labels.forEach(label => {
       const input = label.querySelector('input');
       if (input.value === question.correct) {
@@ -209,17 +211,26 @@ function evaluateAnswers() {
       }
     });
 
+    // Skip if no answer selected
     if (!selected) return;
 
+    // Extract values from user's answer
     const userValue = selected.value;
     const userSubtype = selected.getAttribute('data-subtype');
-    const [a, b] = question.questionWords;
+    const reversed = question.reversed;
+
+    const [a, b] = reversed
+      ? [question.questionWords[1], question.questionWords[0]]
+      : question.questionWords;
+
     const [c, d] = userValue.split(' : ');
     const isCorrect = userValue === question.correct;
 
+    // Store user answer and subtype in quizData
     question.userAnswer = userValue;
     question.userSubtype = userSubtype;
 
+    // Create explanation elements
     const box = document.createElement('div');
     box.classList.add('explanation-box');
 
@@ -235,16 +246,18 @@ function evaluateAnswers() {
     typeLine.textContent = isCorrect ? '✔ Analogies match' : "✘ Analogies don't match";
     typeLine.classList.add('analogy-line', isCorrect ? 'correct' : 'wrong');
 
+    // Highlight user's wrong answer
     if (!isCorrect) {
       const fail = [...labels].find(label => label.querySelector('input').value === userValue);
       if (fail) fail.classList.add('wrong');
     }
 
+    // Append all explanation lines
     box.append(exp1, yourAns, typeLine);
     qDiv.appendChild(box);
   });
 
-  // ========== Phase 5: Feedback Box with Speed & Tips ==========
+  // ========== Phase 5: Feedback Summary Box ==========
 
   const timeTaken = 10 * 60 - totalTime;
   let correctCount = 0;
@@ -260,8 +273,8 @@ function evaluateAnswers() {
 
   const tipList = Array.from(wrongSubtypes);
   displayFeedbackBox(timeTaken, totalTime, tipList, correctCount);
-
 }
+
 
 // ========== Feedback Renderer ==========
 
@@ -286,15 +299,17 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
 
   const shownTips = tips.slice(0, 3); // Max of 3
   const verdictText = shownTips.length
-    ? `💡 LEARN MORE ABOUT ➤ ${shownTips.join(', ')}`
+    ? `💡<strong class="yellow">LEARN MORE ABOUT</strong> [<span class="red">${shownTips.join(', ')}</span>] <strong class="yellow">Categories</strong>`
     : '🎉 Perfect! You are a master of word analogies.';
 
   box.innerHTML = `
-    <h3>Summary</h3>
-    <p><strong>Score:</strong> <span class="${scoreColor}">${correctCount} / 10</span></p>
-    <p><strong>Time Spent:</strong> <span class="${timeColor}">${timeSpent}s</span></p>
-    <p><strong>Time Left:</strong> <span class="${timeColor}">${timeLeft}s</span></p>
-    <p>${verdictText}</p>
+    <h3 style="text-align: center;">Summary</h3>
+    <div style="text-align: left;">
+      <p><strong>🎯 Score:</strong> <span class="${scoreColor}">${correctCount} / 10</span></p>
+      <p><strong>⏱️ Time Spent:</strong> <span class="${timeColor}">${timeSpent}s</span></p>
+      <p><strong>⏳ Time Left:</strong> <span class="${timeColor}">${timeLeft}s</span></p>
+      <p>${verdictText}</p>
+    </div>
   `;
 
   box.style.display = 'block';
