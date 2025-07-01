@@ -1,3 +1,5 @@
+// ========== Phase 0: Configuration & Data ==========
+
 const CATEGORY_TITLES = {
   'eng-vocabulary': 'Vocabulary',
   'eng-word-analogy': 'Word Analogy',
@@ -8,13 +10,13 @@ const CATEGORY_TITLES = {
 };
 
 const EXPLANATIONS = {
-  'Antonym': (a, b) => `${a} and ${b} have opposite meanings`,
-  'Synonym': (a, b) => `${a} and ${b} have similar meanings`,
+  'Antonyms': (a, b) => `${a} and ${b} have opposite meanings`,
+  'Synonyms': (a, b) => `${a} and ${b} have similar meanings`,
   'Category to Member': (a, b) => `${b} belongs to ${a}`,
   'Cause and Effect': (a, b) => `${a} causes ${b}`,
   'Function or Use': (a, b) => `${a} is used to ${b}`,
   'Part to Whole': (a, b) => `${a} is a part of ${b}`,
-  'Degree or Sequence': (a, b) => `${a} comes before ${b} `,
+  'Degree or Sequence': (a, b) => `${a} comes before ${b}`,
   'Collective Noun': (a, b) => `A group of ${b} is called ${a}`,
   'Location or Setting': (a, b) => `${b} can be found in a ${a}`,
   'Profession to Object': (a, b) => `${a} is associated with the ${b}`
@@ -23,6 +25,8 @@ const EXPLANATIONS = {
 let timerInterval;
 let totalTime = 10 * 60;
 let quizData = [];
+
+// ========== Phase 1: Quiz Setup and Question Loading ==========
 
 document.addEventListener('DOMContentLoaded', async () => {
   const startBtn = document.getElementById('start-btn');
@@ -104,33 +108,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     startTimer();
   });
 
-  function renderQuestions() {
-    questionsWrapper.innerHTML = '';
-
-    quizData.forEach((q, index) => {
-      const qDiv = document.createElement('div');
-      qDiv.classList.add('question');
-
-      const qText = document.createElement('p');
-      qText.textContent = `${index + 1}. ${q.display}`;
-      qDiv.appendChild(qText);
-
-      q.choices.forEach((choice, cIndex) => {
-        const label = document.createElement('label');
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = q.name;
-        input.value = choice.pair;
-        input.setAttribute('data-subtype', choice.subtype);
-        label.appendChild(input);
-        label.append(` ${String.fromCharCode(65 + cIndex)}. ${choice.pair}`);
-        qDiv.appendChild(label);
-      });
-
-      questionsWrapper.appendChild(qDiv);
-    });
-  }
-
   document.getElementById('submit-btn').addEventListener('click', () => {
     submitQuiz();
   });
@@ -142,6 +119,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     lockQuizForm();
   });
 });
+
+function renderQuestions() {
+  const questionsWrapper = document.getElementById('questions-wrapper');
+  questionsWrapper.innerHTML = '';
+
+  quizData.forEach((q, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.classList.add('question');
+
+    const qText = document.createElement('p');
+    qText.textContent = `${index + 1}. ${q.display}`;
+    qDiv.appendChild(qText);
+
+    q.choices.forEach((choice, cIndex) => {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = q.name;
+      input.value = choice.pair;
+      input.setAttribute('data-subtype', choice.subtype);
+      label.appendChild(input);
+      label.append(` ${String.fromCharCode(65 + cIndex)}. ${choice.pair}`);
+      qDiv.appendChild(label);
+    });
+
+    questionsWrapper.appendChild(qDiv);
+  });
+}
+
+// ========== Phase 2: Timer ==========
 
 function startTimer() {
   updateTimerDisplay();
@@ -161,17 +168,17 @@ function updateTimerDisplay() {
   document.getElementById('timer').textContent = `Time Left: ${minutes}:${seconds}`;
 }
 
+// ========== Phase 3: Quiz Submission ==========
+
 function submitQuiz() {
-  // Scroll to the top of the quiz
   const firstQuestion = document.querySelector('.question');
   if (firstQuestion) {
     window.scrollTo({
-      top: firstQuestion.offsetTop - 60, // scroll a bit higher
+      top: firstQuestion.offsetTop - 60,
       behavior: 'smooth'
     });
   }
 
-  // Submit the form
   document.getElementById('quiz-form').requestSubmit();
 }
 
@@ -186,6 +193,8 @@ function lockQuizForm() {
   submitBtn.disabled = true;
   submitBtn.classList.add('hidden');
 }
+
+// ========== Phase 4: Answer Evaluation + Explanations ==========
 
 function evaluateAnswers() {
   quizData.forEach((question, index) => {
@@ -208,22 +217,22 @@ function evaluateAnswers() {
     const [c, d] = userValue.split(' : ');
     const isCorrect = userValue === question.correct;
 
+    question.userAnswer = userValue;
+    question.userSubtype = userSubtype;
+
     const box = document.createElement('div');
     box.classList.add('explanation-box');
 
-    // First line – correct answer explanation
     const exp1 = document.createElement('p');
     exp1.innerHTML = `<span class="subtype-label">${question.correctSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
     exp1.classList.add('explanation-line');
 
-    // Second line – user's answer explanation
     const yourAns = document.createElement('p');
     yourAns.innerHTML = `<span class="subtype-label">${userSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[userSubtype](c, d)})</span>`;
     yourAns.classList.add('answer-line');
 
-    // Third line – analogy match result
     const typeLine = document.createElement('p');
-    typeLine.textContent = isCorrect ? '✔Analogies match' : "✘Analogies don't match";
+    typeLine.textContent = isCorrect ? '✔ Analogies match' : "✘ Analogies don't match";
     typeLine.classList.add('analogy-line', isCorrect ? 'correct' : 'wrong');
 
     if (!isCorrect) {
@@ -235,5 +244,58 @@ function evaluateAnswers() {
     qDiv.appendChild(box);
   });
 
-  
+  // ========== Phase 5: Feedback Box with Speed & Tips ==========
+
+  const timeTaken = 10 * 60 - totalTime;
+  let correctCount = 0;
+  const wrongSubtypes = new Set();
+
+  quizData.forEach(q => {
+    if (q.userAnswer === q.correct) {
+      correctCount++;
+    } else {
+      wrongSubtypes.add(q.correctSubtype);
+    }
+  });
+
+  const tipList = Array.from(wrongSubtypes);
+  displayFeedbackBox(timeTaken, totalTime, tipList, correctCount);
+
+}
+
+// ========== Feedback Renderer ==========
+
+function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
+  const box = document.getElementById("feedback-box");
+
+  // Score performance color
+  let scoreColor = '';
+  if (correctCount >= 9) scoreColor = 'green-bright';
+  else if (correctCount >= 7) scoreColor = 'green-soft';
+  else if (correctCount >= 5) scoreColor = 'yellow';
+  else if (correctCount >= 3) scoreColor = 'orange';
+  else scoreColor = 'red';
+
+  // Time performance color
+  let timeColor = '';
+  if (timeSpent < 150) timeColor = 'green-bright';
+  else if (timeSpent < 300) timeColor = 'green-soft';
+  else if (timeSpent < 750) timeColor = 'yellow';
+  else if (timeSpent < 900) timeColor = 'orange';
+  else timeColor = 'red';
+
+  const shownTips = tips.slice(0, 3); // Max of 3
+  const verdictText = shownTips.length
+    ? `💡 LEARN MORE ABOUT ➤ ${shownTips.join(', ')}`
+    : '🎉 Perfect! You are a master of word analogies.';
+
+  box.innerHTML = `
+    <h3>Summary</h3>
+    <p><strong>Score:</strong> <span class="${scoreColor}">${correctCount} / 10</span></p>
+    <p><strong>Time Spent:</strong> <span class="${timeColor}">${timeSpent}s</span></p>
+    <p><strong>Time Left:</strong> <span class="${timeColor}">${timeLeft}s</span></p>
+    <p>${verdictText}</p>
+  `;
+
+  box.style.display = 'block';
 }

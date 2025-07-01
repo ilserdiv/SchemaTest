@@ -1,5 +1,5 @@
 [
-{"subtype":"Antonym","pairs":[{"A":"Hot","B":"Cold"},{"A":"Big","B":"Small"},{"A":"Fast","B":"Slow"},
+{"subtype":"Antonyms","pairs":[{"A":"Hot","B":"Cold"},{"A":"Big","B":"Small"},{"A":"Fast","B":"Slow"},
 {"A":"Happy","B":"Sad"},{"A":"Light","B":"Dark"},{"A":"Open","B":"Closed"},{"A":"Day","B":"Night"},
 {"A":"Up","B":"Down"},{"A":"Hard","B":"Soft"},{"A":"Win","B":"Lose"},{"A":"Full","B":"Empty"},
 {"A":"Early","B":"Late"},{"A":"In","B":"Out"},{"A":"Dry","B":"Wet"},{"A":"Thick","B":"Thin"},
@@ -7,7 +7,7 @@
 {"A":"Young","B":"Old"},{"A":"Sharp","B":"Dull"},{"A":"True","B":"False"},{"A":"Give","B":"Take"},
 {"A":"Laugh","B":"Cry"},{"A":"Come","B":"Go"}]}
 ,
-{"subtype":"Synonym","pairs":[{"A":"Big","B":"Large"},{"A":"Small","B":"Tiny"},{"A":"Fast","B":"Quick"},
+{"subtype":"Synonyms","pairs":[{"A":"Big","B":"Large"},{"A":"Small","B":"Tiny"},{"A":"Fast","B":"Quick"},
 {"A":"Happy","B":"Joyful"},{"A":"Sad","B":"Unhappy"},{"A":"Smart","B":"Intelligent"},{"A":"Funny","B":"Humorous"},
 {"A":"Angry","B":"Mad"},{"A":"Cold","B":"Chilly"},{"A":"Warm","B":"Hot"},{"A":"Easy","B":"Simple"},
 {"A":"Hard","B":"Difficult"},{"A":"Begin","B":"Start"},{"A":"End","B":"Finish"},{"A":"Help","B":"Assist"},

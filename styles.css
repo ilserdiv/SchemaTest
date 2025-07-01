@@ -280,3 +280,16 @@ label.wrong {
   color: #008a8a;
   font-weight: normal;
 }
+
+#feedback-box {
+  display: none; 
+  border: 2px solid #333; 
+  padding: 16px; 
+  margin-top: 20px;
+}
+
+.green-bright { color: #22c55e; font-weight: bold; }
+.green-soft { color: #86efac; }
+.yellow { color: #facc15; }
+.orange { color: #f97316; }
+.red { color: #ef4444; font-weight: bold; }

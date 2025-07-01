@@ -1,5 +1,5 @@
 [
-{"subtype":"Antonym","pairs":[{"A":"Erudite","B":"Ignorant"},{"A":"Loquacious","B":"Taciturn"},
+{"subtype":"Antonyms","pairs":[{"A":"Erudite","B":"Ignorant"},{"A":"Loquacious","B":"Taciturn"},
 {"A":"Magnanimous","B":"Vindictive"},{"A":"Lucid","B":"Obscure"},{"A":"Ascend","B":"Plummet"},{"A":"Candid","B":"Deceptive"},
 {"A":"Prolific","B":"Barren"},{"A":"Venerate","B":"Desecrate"},{"A":"Altruistic","B":"Selfish"},{"A":"Concur","B":"Dissent"},
 {"A":"Immutable","B":"Capricious"},{"A":"Pristine","B":"Defiled"},{"A":"Sagacious","B":"Foolish"},{"A":"Austere","B":"Lavish"},
@@ -8,7 +8,7 @@
 {"A":"Diligent","B":"Indolent"},{"A":"Innovative","B":"Conventional"},{"A":"Meticulous","B":"Careless"},
 {"A":"Reverent","B":"Irreverent"}]}
 ,
-{"subtype":"Synonym","pairs":[{"A":"Fearful","B":"Afraid"},{"A":"Bright","B":"Vivid"},{"A":"Soft","B":"Cushiony"},
+{"subtype":"Synonyms","pairs":[{"A":"Fearful","B":"Afraid"},{"A":"Bright","B":"Vivid"},{"A":"Soft","B":"Cushiony"},
 {"A":"Hard","B":"Tough"},{"A":"Big","B":"Huge"},{"A":"Small","B":"Miniature"},{"A":"True","B":"Accurate"},
 {"A":"False","B":"Incorrect"},{"A":"Safe","B":"Secure"},{"A":"Dangerous","B":"Hazardous"},{"A":"Wide","B":"Broad"},
 {"A":"Narrow","B":"Slim"},{"A":"Help","B":"Aid"},{"A":"Stop","B":"Cease"},{"A":"Begin","B":"Commence"},

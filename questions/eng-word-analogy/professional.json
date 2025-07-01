@@ -1,5 +1,5 @@
 [
-{"subtype":"Antonym","pairs":[{"A":"Adhere","B":"Repel"},{"A":"Conserve","B":"Waste"},{"A":"Praise","B":"Condemn"},
+{"subtype":"Antonyms","pairs":[{"A":"Adhere","B":"Repel"},{"A":"Conserve","B":"Waste"},{"A":"Praise","B":"Condemn"},
 {"A":"Expand","B":"Contract"},{"A":"Diligent","B":"Negligent"},{"A":"Transparent","B":"Opaque"},{"A":"Abundant","B":"Scarce"},
 {"A":"Elevate","B":"Lower"},{"A":"Fortify","B":"Weaken"},{"A":"Encourage","B":"Discourage"},{"A":"Harmonious","B":"Discordant"},
 {"A":"Legitimate","B":"Illegitimate"},{"A":"Prosper","B":"Decline"},{"A":"Refine","B":"Pollute"},{"A":"Secure","B":"Vulnerable"},
@@ -7,7 +7,7 @@
 {"A":"Include","B":"Exclude"},{"A":"Integrate","B":"Isolate"},{"A":"Maintain","B":"Abandon"},{"A":"Stabilize","B":"Destabilize"},
 {"A":"Permit","B":"Forbid"},{"A":"Reinforce","B":"Undermine"}]}
 ,
-{"subtype":"Synonym","pairs":[{"A":"Brave","B":"Courageous"},{"A":"Kind","B":"Nice"},{"A":"Mean","B":"Cruel"},
+{"subtype":"Synonyms","pairs":[{"A":"Brave","B":"Courageous"},{"A":"Kind","B":"Nice"},{"A":"Mean","B":"Cruel"},
 {"A":"Fast","B":"Rapid"},{"A":"Slow","B":"Sluggish"},{"A":"Neat","B":"Orderly"},{"A":"Messy","B":"Untidy"},
 {"A":"Bright","B":"Radiant"},{"A":"Dark","B":"Gloomy"},{"A":"Sharp","B":"Pointed"},{"A":"Flat","B":"Level"},
 {"A":"Rich","B":"Wealthy"},{"A":"Poor","B":"Needy"},{"A":"Tired","B":"Weary"},{"A":"Hungry","B":"Starving"},
