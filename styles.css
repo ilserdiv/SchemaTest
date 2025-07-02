@@ -328,10 +328,21 @@ body.modal-active .quiz-container {
   pointer-events: none;
 }
 
+.feedback-line {
+  background-color: #f0fdfa;
+  border: 1px solid #c1f3f3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 #review-btn {
   background: linear-gradient(to right, #1aaea7, #13c4b6);
   color: white;
 }
+
 /* =====================================
    PHASE 5: Colors & Utility Classes
 ===================================== */

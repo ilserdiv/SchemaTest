@@ -15,11 +15,11 @@ const EXPLANATIONS = {
   'Category to Member': (a, b) => `${b} belongs in the category, ${a}`,
   'Cause and Effect': (a, b) => `${a} causes ${b}`,
   'Function or Use': (a, b) => `${a} is used to ${b}`,
-  'Part to Whole': (a, b) => `${a} is a part of ${b}`,
+  'Part to Whole': (a, b) => `${a} is a part of a ${b}`,
   'Degree or Sequence': (a, b) => `${a} comes before ${b} in progression`,
-  'Collective Noun': (a, b) => `A group of ${b} is called ${a}`,
+  'Collective Noun': (a, b) => `A group of ${b} is called a ${a}`,
   'Location or Setting': (a, b) => `${b} can be found in a ${a}`,
-  'Profession to Object': (a, b) => `${a} is associated with the ${b}`
+  'Profession to Object': (a, b) => `${a} is associated with ${b}`
 };
 
 let timerInterval;
@@ -38,8 +38,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (titleEl) titleEl.textContent = readableTitle;
 
   startBtn.addEventListener('click', async () => {
-    startBtn.classList.add('hidden');
+    startBtn.textContent = 'New Quiz';
     submitBtn.classList.remove('hidden');
+    submitBtn.disabled = false;
+    clearInterval(timerInterval);
+    totalTime = 10 * 60;
+    document.getElementById('feedback-box').style.display = 'none';
+    document.getElementById('feedback-overlay').style.display = 'none';
+    document.body.classList.remove('modal-active');
+
+    // TEMPORARY holder to render into
+    const tempWrapper = document.createElement('div');
+
+    const newQuizData = [];
 
     for (let i = 0; i < 10; i++) {
       const randomLevel = LEVELS[Math.floor(Math.random() * LEVELS.length)];
@@ -69,7 +80,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           const pairList = subtypeMap[randSubtype];
           const randPair = pairList[Math.floor(Math.random() * pairList.length)];
           const formatted = `${randPair.A} : ${randPair.B}`;
-
           if (!wrongChoices.some(c => c.pair === formatted)) {
             wrongChoices.push({ pair: formatted, subtype: randSubtype });
           }
@@ -85,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const allChoices = [...wrongChoices, { pair: correctFormatted, subtype }];
         allChoices.sort(() => Math.random() - 0.5);
 
-        quizData.push({
+        newQuizData.push({
           display: `${qA} : ${qB} :: ____ : ____`,
           questionWords: [qA, qB],
           correct: correctFormatted,
@@ -94,20 +104,49 @@ document.addEventListener('DOMContentLoaded', async () => {
           name: `question-${i}`,
           reversed: reverse
         });
+
+        // Create the DOM elements (same as in renderQuestions)
+        const qDiv = document.createElement('div');
+        qDiv.classList.add('question');
+
+        const qText = document.createElement('p');
+        qText.innerHTML = `<strong>${i + 1}. </strong> <span class="analogy-display">${qA} : ${qB} :: ____ : ____</span>`;
+        qText.classList.add('question-text');
+        qDiv.appendChild(qText);
+
+        allChoices.forEach((choice, cIndex) => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = `question-${i}`;
+          input.value = choice.pair;
+          input.setAttribute('data-subtype', choice.subtype);
+          label.appendChild(input);
+          label.append(` ${String.fromCharCode(65 + cIndex)}. ${choice.pair}`);
+          qDiv.appendChild(label);
+        });
+
+        tempWrapper.appendChild(qDiv);
       } catch (err) {
         console.error(`Failed to load question ${i + 1} from ${url}:`, err);
       }
     }
 
-    renderQuestions();
-    startTimer();
-  });
+    // Replace only after content is ready
+    const wrapper = document.getElementById('questions-wrapper');
+    wrapper.innerHTML = '';
+    wrapper.appendChild(tempWrapper);
 
-  submitBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // ✅ Prevent scroll bug
-    clearInterval(timerInterval);
-    evaluateAnswers();
-    lockQuizForm();
+    quizData = newQuizData;
+    startTimer();
+
+    // Optional: scroll to first question
+    requestAnimationFrame(() => {
+      const first = document.querySelector('.question');
+      if (first) {
+        window.scrollTo({ top: first.offsetTop - 60, behavior: 'smooth' });
+      }
+    });
   });
 });
 
@@ -229,32 +268,25 @@ function evaluateAnswers() {
 
     box.append(title, exp1, yourAns, typeLine);
     qDiv.appendChild(box);
-
   });
-
-  // ========== Phase 5: Feedback Box ==========
 
   const timeTaken = 10 * 60 - totalTime;
   let correctCount = 0;
-  const wrongSubtypes = new Set();
 
   quizData.forEach(q => {
-    if (q.userAnswer === q.correct) {
-      correctCount++;
-    } else {
-      wrongSubtypes.add(q.correctSubtype);
-    }
+    if (q.userAnswer === q.correct) correctCount++;
   });
 
-  const tipList = Array.from(wrongSubtypes);
-  displayFeedbackBox(timeTaken, totalTime, tipList, correctCount);
+  displayFeedbackBox(timeTaken, totalTime, [], correctCount);
 }
 
-// ========== Feedback Renderer ==========
+// ========== Phase 5: Feedback Renderer ==========
 
 function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   const box = document.getElementById("feedback-box");
   const overlay = document.getElementById("feedback-overlay");
+
+  const avgTime = Math.round(timeSpent / 10);
 
   let scoreColor = '';
   if (correctCount >= 9) scoreColor = 'green-bright';
@@ -263,25 +295,66 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   else if (correctCount >= 3) scoreColor = 'orange';
   else scoreColor = 'red';
 
-  let timeColor = '';
-  if (timeSpent < 150) timeColor = 'green-bright';
-  else if (timeSpent < 300) timeColor = 'green-soft';
-  else if (timeSpent < 750) timeColor = 'yellow';
-  else if (timeSpent < 900) timeColor = 'orange';
-  else timeColor = 'red';
+  let avgColor = '';
+  if (avgTime < 20) avgColor = 'green-bright';
+  else if (avgTime < 40) avgColor = 'green-soft';
+  else if (avgTime < 50) avgColor = 'orange';
+  else avgColor = 'red';
 
-  const shownTips = tips.slice(0, 3);
-  const verdictText = shownTips.length
-    ? `💡<strong class="yellow">LEARN MORE ABOUT</strong> [<span class="red">${shownTips.join(', ')}</span>] <strong class="yellow">Categories</strong>`
-    : '🎉 Perfect! You are a master of word analogies.';
+  const scoreFeedback = {
+    "green-bright": "Outstanding work!",
+    "green-soft": "Great job!",
+    "yellow": "You're getting there!",
+    "orange": "Not bad, but there's room for improvement.",
+    "red": "Keep trying—you'll get better with practice!"
+  };
+
+  const timeAdvice = {
+    "green-bright": {
+      "green-bright": "You answered quickly and accurately—excellent time management!",
+      "green-soft": "Efficient and accurate—well-paced!",
+      "orange": "You got a great score—consider if you could go even faster.",
+      "red": "Great score! But you could try to answer more quickly next time."
+    },
+    "green-soft": {
+      "green-bright": "Impressive speed—keep it balanced with accuracy!",
+      "green-soft": "You’re pacing well overall.",
+      "orange": "Try to streamline a bit—you're accurate but can be quicker.",
+      "red": "You performed well—consider answering a bit faster next time."
+    },
+    "yellow": {
+      "green-bright": "You're fast—now focus more on accuracy.",
+      "green-soft": "Decent timing—aim to boost your accuracy.",
+      "orange": "You're on the right track—balance time and accuracy.",
+      "red": "Consider spending a bit more time thinking through the questions."
+    },
+    "orange": {
+      "green-bright": "You're rushing a bit—try to slow down and focus.",
+      "green-soft": "You're fast, but focus more on comprehension.",
+      "orange": "Balance is key—review questions a little more carefully.",
+      "red": "Don't worry—try to slow down and aim for better accuracy."
+    },
+    "red": {
+      "green-bright": "You rushed through—slow down to improve accuracy.",
+      "green-soft": "Speed isn’t everything—take more time next round.",
+      "orange": "Take your time to read more carefully.",
+      "red": "It’s okay to go slow—accuracy comes first. Stay calm and try again!"
+    }
+  };
+
+  const feedbackHTML = `
+    <p class="feedback-line">
+      <span class="${scoreColor}">${scoreFeedback[scoreColor]}</span>
+      <span class="${avgColor}"> ${timeAdvice[scoreColor][avgColor]}</span>
+    </p>
+  `;
 
   box.innerHTML = `
     <h3 style="text-align: center;">Summary</h3>
     <div style="text-align: left;">
       <p><strong>🎯 Score:</strong> <span class="${scoreColor}">${correctCount} / 10</span></p>
-      <p><strong>⏱️ Time Spent:</strong> <span class="${timeColor}">${timeSpent}s</span></p>
-      <p><strong>⏳ Time Left:</strong> <span class="${timeColor}">${timeLeft}s</span></p>
-      <p>${verdictText}</p>
+      <p><strong>⏱️ Avg Time:</strong> <span class="${avgColor}">${avgTime}s per question</span></p>
+      ${feedbackHTML}
       <div style="text-align: center; margin-top: 1rem;">
         <button id="review-btn">Review Answers</button>
       </div>
@@ -296,7 +369,6 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
     box.style.display = 'none';
     overlay.style.display = 'none';
     document.body.classList.remove('modal-active');
-
     const firstQuestion = document.querySelector('.question');
     if (firstQuestion) {
       window.scrollTo({
@@ -306,3 +378,11 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
     }
   });
 }
+
+// ========== Phase 6: Submit Button Logic ==========
+const submitBtn = document.getElementById('submit-btn');
+submitBtn.addEventListener('click', () => {
+  clearInterval(timerInterval);
+  evaluateAnswers();
+  lockQuizForm();
+});

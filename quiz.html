@@ -20,13 +20,16 @@
 
     <div class="quiz-controls">
       <div class="timer" id="timer">Time Left: 10:00</div>
-      <button id="start-btn">Start Quiz</button>
-      <button id="submit-btn" class="hidden" type="submit" form="quiz-form">Submit Answers</button>
+      <button id="start-btn" type="button">Start Quiz</button>
     </div>
 
-    <form id="quiz-form">
+    <div id="quiz-form">
       <div id="questions-wrapper"></div>
-    </form>
+    </div>
+
+    <div class="submit-wrapper">
+      <button id="submit-btn" class="hidden" type="button">Submit Answers</button>
+    </div>
   </div>
 
   <div id="feedback-box"></div>
