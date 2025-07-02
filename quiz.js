@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           input.value = choice.pair;
           input.setAttribute('data-subtype', choice.subtype);
           label.appendChild(input);
-          label.append(` ${String.fromCharCode(65 + cIndex)}. ${choice.pair}`);
+          label.append(` ${choice.pair}`);
           qDiv.appendChild(label);
         });
 
@@ -223,6 +223,7 @@ function evaluateAnswers() {
     const qDiv = document.querySelectorAll('.question')[index];
     const labels = qDiv.querySelectorAll('label');
 
+    // Always highlight correct choice
     labels.forEach(label => {
       const input = label.querySelector('input');
       if (input.value === question.correct) {
@@ -230,18 +231,32 @@ function evaluateAnswers() {
       }
     });
 
-    if (!selected) return;
-
-    const userValue = selected.value;
-    const userSubtype = selected.getAttribute('data-subtype');
+    // Prep core values
     const reversed = question.reversed;
     const [a, b] = reversed ? [question.questionWords[1], question.questionWords[0]] : question.questionWords;
-    const [c, d] = userValue.split(' : ');
-    const isCorrect = userValue === question.correct;
 
-    question.userAnswer = userValue;
-    question.userSubtype = userSubtype;
+    let userValue = '';
+    let userSubtype = '';
+    let c = '', d = '';
+    let isCorrect = false;
 
+    if (selected) {
+      userValue = selected.value;
+      userSubtype = selected.getAttribute('data-subtype');
+      [c, d] = userValue.split(' : ');
+      isCorrect = userValue === question.correct;
+      question.userAnswer = userValue;
+      question.userSubtype = userSubtype;
+    } else {
+      userValue = 'No answer';
+      userSubtype = 'None';
+      [c, d] = ['?', '?'];
+      question.userAnswer = '';
+      question.userSubtype = 'None';
+      qDiv.classList.add('unanswered'); // Optional style
+    }
+
+    // Create explanation box
     const box = document.createElement('div');
     box.classList.add('explanation-box');
 
@@ -250,18 +265,26 @@ function evaluateAnswers() {
     title.classList.add('explanation-title');
 
     const exp1 = document.createElement('p');
-    exp1.innerHTML = `QUESTION: <span class="subtype-label green-bright">${question.correctSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
+    exp1.innerHTML = `QUESTION: <span class="subtype-label green-bright">${question.correctSubtype.toUpperCase()}<br></span> <span class="explanation-detail">(${EXPLANATIONS[question.correctSubtype](a, b)})</span>`;
     exp1.classList.add('explanation-line');
 
+    const userExplanation = EXPLANATIONS[userSubtype]
+      ? EXPLANATIONS[userSubtype](c, d)
+      : "No explanation available.";
+
     const yourAns = document.createElement('p');
-    yourAns.innerHTML = `ANSWER: <span class="subtype-label green-soft">${userSubtype.toUpperCase()}</span> <span class="explanation-detail">(${EXPLANATIONS[userSubtype](c, d)})</span>`;
+    yourAns.innerHTML = `ANSWER: <span class="subtype-label green-soft">${userSubtype.toUpperCase()}<br></span> <span class="explanation-detail">(${userExplanation})</span>`;
     yourAns.classList.add('answer-line');
 
     const typeLine = document.createElement('p');
-    typeLine.textContent = isCorrect ? '✔ Analogies match' : "✘ Analogies don't match";
+    typeLine.textContent = isCorrect
+      ? '✔ Analogies match'
+      : selected
+        ? "✘ Analogies don't match"
+        : "✘ No answer selected";
     typeLine.classList.add('analogy-line', isCorrect ? 'correct' : 'wrong');
 
-    if (!isCorrect) {
+    if (!isCorrect && selected) {
       const fail = [...labels].find(label => label.querySelector('input').value === userValue);
       if (fail) fail.classList.add('wrong');
     }
@@ -350,39 +373,100 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
   `;
 
   box.innerHTML = `
-    <h3 style="text-align: center;">Summary</h3>
-    <div style="text-align: left;">
+    <button id="close-feedback" class="feedback-close-btn" aria-label="Close">&times;</button>
+    <div class="feedback-header">
+      <h3>Summary</h3>
+    </div>
+    <div class="button-group">
       <p><strong>🎯 Score:</strong> <span class="${scoreColor}">${correctCount} / 10</span></p>
       <p><strong>⏱️ Avg Time:</strong> <span class="${avgColor}">${avgTime}s per question</span></p>
       ${feedbackHTML}
-      <div style="text-align: center; margin-top: 1rem;">
-        <button id="review-btn">Review Answers</button>
+      <div class="feedback-buttons">
+        <button id="review-btn" class="category-btn">Explanations</button>
+        <a href="tests.html" class="category-btn">Exit Category</a>
       </div>
     </div>
   `;
+
+document.getElementById('close-feedback').addEventListener('click', () => {
+  // Prepare to animate
+  box.classList.remove('modal-animate'); // remove previous entrance
+  box.classList.add('modal-exit');       // trigger exit animation
+
+  overlay.style.opacity = '0';           // optional: fade overlay too
+
+  // Wait for exit animation to finish before hiding
+  setTimeout(() => {
+    box.style.display = 'none';
+    overlay.style.display = 'none';
+    overlay.style.opacity = ''; // reset for next time
+    document.body.classList.remove('modal-active');
+    box.classList.remove('modal-exit'); // reset for next round
+  }, 300); // match CSS duration
+});
+
+  //Modal Entrance Animation
+  box.classList.remove('modal-animate');
+  void box.offsetWidth;
+  box.classList.add('modal-animate');
 
   box.style.display = 'block';
   overlay.style.display = 'block';
   document.body.classList.add('modal-active');
 
   document.getElementById('review-btn').addEventListener('click', () => {
-    box.style.display = 'none';
-    overlay.style.display = 'none';
-    document.body.classList.remove('modal-active');
-    const firstQuestion = document.querySelector('.question');
-    if (firstQuestion) {
-      window.scrollTo({
-        top: firstQuestion.offsetTop - 60,
-        behavior: 'smooth'
-      });
-    }
+    box.classList.remove('modal-animate');
+    box.classList.add('modal-exit');
+    overlay.style.opacity = '0';
+
+    setTimeout(() => {
+      box.style.display = 'none';
+      overlay.style.display = 'none';
+      overlay.style.opacity = '';
+      document.body.classList.remove('modal-active');
+      box.classList.remove('modal-exit');
+      
+      // Scroll after modal is closed
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 200); // Match the faster duration below
   });
+
 }
 
-// ========== Phase 6: Submit Button Logic ==========
+// PHASE 6 — Submit Logic (transforms to Summary)
 const submitBtn = document.getElementById('submit-btn');
+let quizSubmitted = false;
+
 submitBtn.addEventListener('click', () => {
-  clearInterval(timerInterval);
-  evaluateAnswers();
-  lockQuizForm();
+  const box = document.getElementById('feedback-box');
+  const overlay = document.getElementById('feedback-overlay');
+
+  if (!quizSubmitted) {
+    // First time: submit quiz
+    clearInterval(timerInterval);
+    evaluateAnswers();
+    lockQuizForm();
+    quizSubmitted = true;
+
+    // Change Submit to Summary
+    submitBtn.textContent = 'Open Summary';
+    submitBtn.classList.add('summary-mode');
+    submitBtn.disabled = false;
+    submitBtn.classList.remove('hidden');
+
+    // Show modal immediately
+    box.classList.remove('modal-exit');
+    box.classList.add('modal-animate');
+    box.style.display = 'block';
+    overlay.style.display = 'block';
+    document.body.classList.add('modal-active');
+
+  } else {
+    // Clicking again opens the modal again
+    box.classList.remove('modal-exit');
+    box.classList.add('modal-animate');
+    box.style.display = 'block';
+    overlay.style.display = 'block';
+    document.body.classList.add('modal-active');
+  }
 });

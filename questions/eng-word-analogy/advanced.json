@@ -41,15 +41,14 @@
 {"A":"Technological Singularity","B":"Human Redundancy"},{"A":"Immunosuppression","B":"Infection Risk"},
 {"A":"Alienation","B":"Worker Disengagement"},{"A":"Neural Stimulation","B":"Perception Shift"}]}
 ,
-{"subtype": "Function or Use","pairs":[{"A": "Algorithm", "B": "Optimization"},{"A": "Compiler", "B": "Translation"},
-{"A": "Cryostat", "B": "Preservation"},{"A": "Spectroscope", "B": "Analysis"},{"A": "Actuator", "B": "Movement"},
-{"A": "Turing Machine", "B": "Simulation"},{"A": "LIDAR", "B": "Mapping"},{"A": "Catalyst", "B": "Acceleration"},
-{"A": "Neural Network", "B": "Inference"},{"A": "Cryptographic Key", "B": "Encryption"},{"A": "Sonar", "B": "Detection"},
-{"A": "Logic Gate", "B": "Computation"},{"A": "Manipulator Arm", "B": "Handling"},{"A": "Biosensor", "B": "Monitoring"},
-{"A": "Mass Spectrometer", "B": "Identification"},{"A": "Gantry Crane", "B": "Lifting"},{"A": "Virtual Machine", "B": "Execution"},
-{"A": "Deep Scanner", "B": "Scanning"},{"A": "Electron Microscope", "B": "Imaging"},{"A": "Simulink", "B": "Modeling"},
-{"A": "Transducer", "B": "Conversion"},{"A": "Biochip", "B": "Analysis"},{"A": "Machine Learning Model", "B": "Prediction"},
-{"A": "Quantum Processor", "B": "Computation"},{"A": "Heat Sink", "B": "Dissipation"}]}
+{"subtype":"Function or Use","pairs":[{"A":"Spectrometer","B":"Analyze"},{"A":"Cryostat","B":"Preserve"},
+{"A":"Oscilloscope","B":"Visualize"},{"A":"Electrophoresis","B":"Separate"},{"A":"Anemograph","B":"Record"},
+{"A":"Percolator","B":"Brew"},{"A":"Nephroscope","B":"Inspect"},{"A":"Sonicator","B":"Disrupt"},{"A":"Centrifuge","B":"Isolate"},
+{"A":"Photometer","B":"Measure"},{"A":"Dermabrader","B":"Resurface"},{"A":"Ablator","B":"Vaporize"},
+{"A":"Thermocycler","B":"Amplify"},{"A":"Fluorometer","B":"Quantify"},{"A":"Decanter","B":"Separate"},
+{"A":"Laser","B":"Cut"},{"A":"Cryocooler","B":"Freeze"},{"A":"Electrometer","B":"Detect"},{"A":"Incubator","B":"Nurture"},
+{"A":"Magnetometer","B":"Detect"},{"A":"Desalinator","B":"Purify"},{"A":"Dilatometer","B":"Expand"},
+{"A":"Ultrasonicator","B":"Agitate"},{"A":"Calorimeter","B":"Evaluate"},{"A":"Resonator","B":"Stabilize"}]}
 ,
 {"subtype":"Part to Whole","pairs":[{"A":"Quark","B":"Proton"},{"A":"Gene","B":"Chromosome"},{"A":"Axiom","B":"Proof"},
 {"A":"Pixel","B":"Bitmap"},{"A":"Glyph","B":"Font"},{"A":"Instruction","B":"Program"},{"A":"Function","B":"Algorithm"},

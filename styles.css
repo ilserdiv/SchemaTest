@@ -24,7 +24,7 @@ body {
 ===================================== */
 
 a {
-  color: #197b7b;
+  color: #e952b1;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -32,26 +32,38 @@ a:hover {
   color: #1aaea7;
 }
 
-button {
+button,
+.category-btn,
+#review-btn {
   position: relative;
   overflow: hidden;
   font-family: inherit;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+button {
   border: 2px solid #1aaea7;
   background-color: #ffffff;
   color: #1aaea7;
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
+
 button:hover {
   background-color: #e0fffd;
   box-shadow: 0 0 10px rgba(0, 150, 150, 0.2);
 }
+
 button:active {
   transform: scale(0.97);
   box-shadow: 0 0 20px rgba(0, 200, 200, 0.4);
 }
+
 button::after {
   content: "";
   position: absolute;
@@ -62,6 +74,7 @@ button::after {
   transition: transform 0.6s, opacity 1s;
   pointer-events: none;
 }
+
 button:active::after {
   width: 300px;
   height: 300px;
@@ -132,10 +145,10 @@ ul {
   justify-content: center;
   gap: 1rem;
 }
+
 .cta-buttons button {
   font-size: 1.2rem;
   padding: 0.8rem 1.6rem;
-  cursor: pointer;
 }
 
 .tiles-grid {
@@ -144,6 +157,7 @@ ul {
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
+
 .tile {
   position: relative;
   overflow: hidden;
@@ -160,6 +174,7 @@ ul {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 0;
 }
+
 .tile::before {
   content: '';
   position: absolute;
@@ -174,17 +189,21 @@ ul {
   z-index: -1;
   transition: width 0.6s ease-out, height 0.6s ease-out;
 }
+
 .tile:hover::before {
   width: 400%;
   height: 400%;
 }
+
 .tile:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 18px rgba(0, 200, 255, 0.4);
 }
+
 .subcategories {
   margin-top: 2rem;
 }
+
 .back-btn {
   margin-top: 2rem;
 }
@@ -204,6 +223,7 @@ ul {
   border-bottom: 1px solid #c1f3f3;
   z-index: 10;
 }
+
 .timer {
   font-weight: bold;
   color: #007878;
@@ -213,16 +233,19 @@ ul {
   margin-bottom: 1.5rem;
   padding: 1rem;
   background-color: #ffffff;
-  border: 1px solid #d5f9f9;
+  border: 1px solid #00cccc;
   border-radius: 10px;
 }
+
 .question p {
   color: #005a5a;
   font-weight: bold;
 }
+
 .question-text {
   font-size: 1.1rem;
 }
+
 .question label {
   display: block;
   margin: 0.4rem 0;
@@ -233,9 +256,11 @@ ul {
   transition: background-color 0.2s;
   cursor: pointer;
 }
+
 .question label:hover:not(.correct):not(.wrong) {
   background-color: #d2ffff;
 }
+
 .question label:active {
   transform: scale(0.98);
 }
@@ -251,6 +276,7 @@ ul {
   margin-top: 1rem;
   border-radius: 6px;
 }
+
 .explanation-title {
   font-size: 1.3rem;
   font-weight: bold;
@@ -260,37 +286,43 @@ ul {
   border-bottom: 1px solid #bceaea;
   padding-bottom: 0.2rem;
 }
+
 .explanation-line,
 .answer-line {
   color: #008a8a;
 }
+
 .analogy-line.correct {
   color: #2ecc71;
   font-weight: bold;
 }
+
 .analogy-line.wrong {
   color: #e74c3c;
   font-weight: bold;
 }
+
 label.correct {
   border-left: 5px solid #2ecc71;
   background-color: #d4fff4;
 }
+
 label.wrong {
   border-left: 5px solid #e74c3c;
   background-color: #ffecec;
 }
+
 .subtype-label {
   color: #008c8c;
   font-weight: bold;
   font-family: 'Merriweather', serif;
 }
+
 .explanation-detail {
   color: #008a8a;
   font-weight: normal;
 }
 
-/* Modal & Overlay */
 #feedback-overlay {
   position: fixed;
   top: 0;
@@ -328,6 +360,71 @@ body.modal-active .quiz-container {
   pointer-events: none;
 }
 
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#feedback-box.modal-animate {
+  animation: modalFadeIn 0.22s ease-out;
+}
+
+@keyframes modalFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+#feedback-box.modal-exit {
+  animation: modalFadeOut 0.22s ease-in forwards;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.feedback-title {
+  text-align: center;
+}
+
+.feedback-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.feedback-close-btn:hover {
+  background-color: #d00;
+  color: white;
+}
+
 .feedback-line {
   background-color: #f0fdfa;
   border: 1px solid #c1f3f3;
@@ -338,8 +435,51 @@ body.modal-active .quiz-container {
   line-height: 1.5;
 }
 
-#review-btn {
+.feedback-action-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
   background: linear-gradient(to right, #1aaea7, #13c4b6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 0 0.25rem;
+}
+
+.feedback-action-btn:hover {
+  background: linear-gradient(to right, #18c0b4, #11b4a8);
+  transform: scale(1.03);
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-btn {
+  background: linear-gradient(to right, #1aaea7, #13c4b6);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.category-btn:hover {
+  background: linear-gradient(to right, #13c4b6, #1aaea7);
+  transform: scale(1.05);
   color: white;
 }
 

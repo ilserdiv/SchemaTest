@@ -36,14 +36,13 @@
 {"A":"Doubt","B":"Insecurity"},{"A":"Research","B":"Findings"},{"A":"Anesthesia","B":"Numbness"},{"A":"Loyalty","B":"Trust"},
 {"A":"Experiment","B":"Result"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Antenna","B":"Transmission"},{"A":"Router","B":"Routing"},
-{"A":"Hammer","B":"Striking"},{"A":"Camera","B":"Imaging"},{"A":"Keyboard","B":"Input"},{"A":"Printer","B":"Output"},
-{"A":"Helmet","B":"Protection"},{"A":"Wrench","B":"Tightening"},{"A":"Scanner","B":"Reading"},
-{"A":"Microscope","B":"Magnification"},{"A":"Thermometer","B":"Measurement"},{"A":"Flashlight","B":"Illumination"},
-{"A":"Filter","B":"Purification"},{"A":"Conveyor","B":"Transport"},{"A":"Pencil","B":"Writing"},{"A":"Drill","B":"Boring"},
-{"A":"Bulldozer","B":"Demolition"},{"A":"Radio","B":"Broadcast"},{"A":"Joystick","B":"Control"},{"A":"Buzzer","B":"Alert"},
-{"A":"Stapler","B":"Binding"},{"A":"Syringe","B":"Injection"},{"A":"Fuse","B":"Protection"},{"A":"Timer","B":"Countdown"},
-{"A":"Anchor","B":"Stabilization"}]}
+{"subtype":"Function or Use","pairs":[{"A":"Barometer","B":"Measure"},{"A":"Scalpel","B":"Incise"},{"A":"Drill","B":"Bore"},
+{"A":"Crucible","B":"Melt"},{"A":"Compass","B":"Navigate"},{"A":"Mortar","B":"Grind"},{"A":"Decoder","B":"Translate"},
+{"A":"Scanner","B":"Digitize"},{"A":"Catalyst","B":"Accelerate"},{"A":"Encryptor","B":"Scramble"},
+{"A":"Evaporator","B":"Vaporize"},{"A":"Distiller","B":"Purify"},{"A":"Pipette","B":"Transfer"},{"A":"Router","B":"Direct"},
+{"A":"Balancer","B":"Stabilize"},{"A":"Harpoon","B":"Impale"},{"A":"Ventilator","B":"Oxygenate"},{"A":"Modulator","B":"Adjust"},
+{"A":"Extractor","B":"Withdraw"},{"A":"Calibrator","B":"Align"},{"A":"Reflector","B":"Redirect"},{"A":"Siphon","B":"Draw"},
+{"A":"Amplifier","B":"Magnify"},{"A":"Reducer","B":"Shrink"},{"A":"Anemometer","B":"Gauge"}]}
 ,
 {"subtype":"Part to Whole","pairs":[{"A":"Neuron","B":"Nervous System"},{"A":"Lens","B":"Camera"},
 {"A":"Gear","B":"Transmission"},{"A":"Valve","B":"Engine"},{"A":"Rotor","B":"Helicopter"},{"A":"Circuit","B":"Motherboard"},
