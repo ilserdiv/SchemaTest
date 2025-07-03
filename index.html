@@ -1,69 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SchemaTest</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="landing-container">
-    <header>
-      <h1 class="logo">🧠 SchemaTest</h1>
+
+  <!-- Header -->
+  <header id="logo-container">
+    <div class="logo-title">
+      <h1><span class="logo">🧠</span>SchemaTest</h1>
+    </div>
+    <div>
       <p class="tagline">SchemaTest is a growing platform for mastering skills, reviewing concepts, and excelling in exams</p>
-    </header>
+    </div>
+  </header>
 
-    <section class="about">
-      <h2>SchemaTest: Civil Service Reviewer</h2>
-      <p>
-        Welcome to the Civil Service section of SchemaTest — your structured, strategic reviewer for the Philippine Civil Service Exam. This part of our platform is built for one thing: helping you pass with confidence.
+  <!-- About Section -->
+  <section id="about-section" class="glass-section">
+    <div class="about-text">
+      <h2>About</h2>
+      <p class="about-description">
+        SchemaTest is a well-structured, intelligently designed reviewer built to help aspiring public servants succeed in the Civil Service Examination. Our platform offers clear, comprehensive lessons and practical tips for mastering each major competency — from Verbal and Analytical to Numerical, Clerical, and General Information.
       </p>
-      <p>
-        We’ve organized the English and Math subjects into detailed categories like Grammar, Vocabulary, Logical Reasoning, and Word Analogy — each one paired with lessons and mock tests to reinforce mastery.
+      <p class="about-description">
+        What sets SchemaTest apart is our advanced quiz generator, capable of producing over 90,000 unique questions per category — giving you virtually unlimited practice with randomized variations. Every item includes an automatic checker and instant, concise explanations to help you learn efficiently as you go.
       </p>
-      <p>
-        Whether you're just starting your review or sharpening specific skills, SchemaTest gives you a streamlined experience so you can focus on what matters.
+      <p class="about-description">
+        Whether you're sharpening your grammar, decoding logical patterns, or preparing for service-oriented tasks, SchemaTest ensures you're not just studying hard — you're studying smart.
       </p>
-    </section>
+    </div>
 
-    <section class="subjects">
-      <h2>Subjects</h2>
-      <h3>ENGLISH</h3>
-      <ul>
-        <li>Logical Fallacies</li>
-        <li>Assumption and Conclusion</li>
-        <li>Grammar</li>
-        <li>Vocabulary</li>
-        <li>Word Analogy</li>
-        <li>Sequences</li>
-      </ul>
-      <h3>MATH</h3>
-      <p>(Coming soon)</p>
-      <h3>OTHER</h3>
-      <p>(Coming soon)</p>
-    </section>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel-track">
+        <img src="assets/images/image1.jpg" class="carousel-image" alt="Carousel Image 1" />
+        <img src="assets/images/image2.jpg" class="carousel-image" alt="Carousel Image 2" />
+      </div>
+    </div>
+  </section>
 
-    <section class="explanation">
-      <h2>What You'll Find Inside</h2>
-      <p>
-        At SchemaTest, we believe learning should be both structured and practical. That's why each subject is split into two powerful modes:
-      </p>
-      <ul>
-        <li><strong>Lessons</strong> – Concise explanations, examples, and strategies for every category</li>
-        <li><strong>Tests</strong> – Timed practice quizzes modeled after real CSE questions</li>
-      </ul>
-      <p>
-        Whether you're brushing up on grammar rules or challenging yourself with tricky analogies, SchemaTest gives you the clarity and repetition needed to pass with confidence.
-      </p>
-      <p>
-        🚀 <em>Ready to review smarter, not harder?</em> Begin your journey now!
-      </p>
-    </section>
+  <!-- Main Secion -->
+  <div id="competencies-container">
+    <!-- Verbal Competency -->
+    <h3 class="competency-title">Verbal Competency</h3>
+    <p class="category-description">Sharpen your language skills with focused exercises on grammar, reading comprehension, and organizing ideas.</p>
+    <div class="category-container">
+      <button>Grammar</button>
+      <button>Reading Comprehension</button>
+      <button>Organizing Ideas</button>
+    </div>
 
-    <div class="cta-buttons">
-      <button disabled>📘 Lessons</button>
-      <a href="tests.html"><button>📝 Tests</button></a>
+    <!-- Analytical Competency -->
+    <h3 class="competency-title">Analytical Competency</h3>
+    <p class="category-description">Develop critical thinking and logical reasoning with topics like word analogy, assumptions & conclusions, fallacies, and sequences.</p>
+    <div class="category-container">
+      <button class="category-btn">Word Analogy</button>
+      <button class="category-btn">Assumption & Conclusion</button>
+      <button class="category-btn">Fallacies</button>
+      <button class="category-btn">Sequences</button>
+    </div>
+
+    <!-- Numerical Competency -->
+    <h3 class="competency-title">Numerical Competency</h3>
+    <p class="category-description">Master basic math and data interpretation skills necessary for government service evaluations.</p>
+    <div class="category-container">
+      <button class="category-btn">Math</button>
+      <button class="category-btn">Data Interpretation</button>
+    </div>
+
+    <!-- Service Competency -->
+    <h3 class="competency-title">Clerical Competency</h3>
+    <p class="category-description">Improve your clerical accuracy and understanding of essential administrative tasks.</p>
+    <div class="category-container">
+      <button class="category-btn">Clerical</button>
+    </div>
+
+    <!-- General Information Competency -->
+    <h3 class="competency-title">General Information Competency</h3>
+    <p class="category-description">Stay informed about the Constitution, the Civil Service Commission, and professional ethics as outlined in RA 7613.</p>
+    <div class="category-container">
+      <button class="category-btn">The Philippine Constitution</button>
+      <button class="category-btn">The Civil Service Commission</button>
+      <button class="category-btn">RA 7613 Code of Conduct</button>
     </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
