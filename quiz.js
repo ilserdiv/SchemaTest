@@ -38,8 +38,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (titleEl) titleEl.textContent = readableTitle;
 
   startBtn.addEventListener('click', async () => {
-    startBtn.textContent = 'New Quiz';
+    startBtn.textContent = '↻ New Quiz';
     submitBtn.classList.remove('hidden');
+    submitBtn.textContent = 'Submit Answers ✅';
+    submitBtn.classList.remove('summary-mode');
+
+    const exitBtn = document.getElementById('category-btn');
+    exitBtn.classList.add('hidden');
+
+    document.getElementById('category-btn').classList.add('hidden');
     submitBtn.disabled = false;
     clearInterval(timerInterval);
     totalTime = 10 * 60;
@@ -382,8 +389,8 @@ function displayFeedbackBox(timeSpent, timeLeft, tips, correctCount) {
       <p><strong>⏱️ Avg Time:</strong> <span class="${avgColor}">${avgTime}s per question</span></p>
       ${feedbackHTML}
       <div class="feedback-buttons">
-        <button id="review-btn" class="category-btn">Explanations</button>
-        <a href="tests.html" class="category-btn">Exit Category</a>
+        <a href="tests.html" class="category-btn">🚪Exit Category</a>
+        <button id="review-btn" class="category-btn">👁️View Explanations</button>
       </div>
     </div>
   `;
@@ -440,6 +447,7 @@ let quizSubmitted = false;
 submitBtn.addEventListener('click', () => {
   const box = document.getElementById('feedback-box');
   const overlay = document.getElementById('feedback-overlay');
+  const categoryBtn = document.getElementById('category-btn');
 
   if (!quizSubmitted) {
     // First time: submit quiz
@@ -449,11 +457,13 @@ submitBtn.addEventListener('click', () => {
     quizSubmitted = true;
 
     // Change Submit to Summary
-    submitBtn.textContent = 'Open Summary';
+    submitBtn.textContent = '📝 Open Summary';
     submitBtn.classList.add('summary-mode');
     submitBtn.disabled = false;
     submitBtn.classList.remove('hidden');
-
+    // ✅ Unhide Exit Category button
+    categoryBtn.classList.remove('hidden');
+    
     // Show modal immediately
     box.classList.remove('modal-exit');
     box.classList.add('modal-animate');
