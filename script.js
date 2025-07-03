@@ -1,26 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("carousel-track");
-  const slides = track.querySelectorAll(".carousel-image");
-  let index = 0;
-  let isHovered = false;
+const carousel = document.getElementById("carousel");
+let currentIndex = 0;
+const totalImages = carousel.children.length;
 
-  function showSlide(i) {
-    const width = track.clientWidth;
-    track.scrollTo({
-      left: i * width,
-      behavior: "smooth"
-    });
-  }
-
-  function nextSlide() {
-    if (isHovered) return;
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  }
-
-  const interval = setInterval(nextSlide, 3000);
-
-  // Pause on hover
-  track.addEventListener("mouseenter", () => isHovered = true);
-  track.addEventListener("mouseleave", () => isHovered = false);
-});
+// Auto-scroll every 4 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalImages;
+  carousel.scrollTo({
+    left: carousel.clientWidth * currentIndex,
+    behavior: "smooth"
+  });
+}, 4000);
