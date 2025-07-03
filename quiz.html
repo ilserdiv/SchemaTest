@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schema Competency Test</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/images/SCT.png" alt="SCT Logo" class="logo" />
+    <h1 id="quiz-category">Loading Category...</h1>
+  </header>
+
+  <div id="controls">
+    <button id="start-btn">Start Quiz</button>
+    <span id="timer">10:00</span>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <button id="submit-btn">Submit</button>
+  <button onclick="window.location.href='index.html'">Exit</button>
+
+  <div id="summary-modal">
+    <div id="summary-content">
+      <button id="close-summary">&times;</button>
+      <h2>Summary</h2>
+      <p><strong>Score:</strong> <span id="score"></span></p>
+      <p><strong>Average Time:</strong> <span id="avg-time"></span></p>
+      <p><strong>Feedback:</strong> <span id="feedback"></span></p>
+
+      <div class="modal-buttons">
+        <button id="see-explanations">See Explanations</button>
+        <button onclick="window.location.href='index.html'">Exit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
