@@ -17,7 +17,7 @@
   <!-- Main Content -->
   <main>
     <button class="generator-btn">▶ Start Quiz</button>
-    <div id="timer" hidden>🕙10:00</div>
+    <div id="timer" hidden>🕙Time Left: <span id="countdown"></span></div>
     <div id="quiz-container" hidden></div>
     <button id="submit-btn" hidden>✔ Submit</button>
     <button onclick="window.location.href='index.html'">🏠 Back to Homepage</button>
@@ -30,8 +30,8 @@
       <h2 id="modal-title">Summary</h2>
     </div>
     <div id="summary-container">
-      <p id="totalScore">Score: </p>
-      <p id="avgTime">Average Time: </p>
+      <p id="score-text">Score: </p>
+      <p id="time-text">Avg Time: </p>
       <div id="feedback-box">
         <p id="feedback"></p>
       </div>
