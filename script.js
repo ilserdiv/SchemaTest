@@ -13,24 +13,21 @@ if (carousel && totalImages > 0) {
   }, 4000);
 }
 
-// ========== 2. Button Redirect (on index.html) ==========
+// ========== 2. Button Redirect ==========
 document.addEventListener('DOMContentLoaded', () => {
   const categoryButtons = document.querySelectorAll('.category-btn');
-
   categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
       const competency = button.dataset.competency;
       const category = button.dataset.category;
-
       if (competency && category) {
-        const url = `quiz.html?competency=${competency}&category=${category}`;
-        window.location.href = url;
+        window.location.href = `quiz.html?competency=${competency}&category=${category}`;
       }
     });
   });
 });
 
-// ========== 3. Quiz Page: Set Quiz Title from URL (on quiz.html) ==========
+// ========== 3. Quiz Title from URL ==========
 function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
   return {
@@ -41,83 +38,110 @@ function getQueryParams() {
 
 function formatTitle(category) {
   const titleMap = {
-  // Verbal
-  "grammar": "Grammar",
-  "reading-comprehension": "Reading Comprehension",
-  "organizing-ideas": "Organizing Ideas",
-
-  // Analytical
-  "word-analogy": "Word Analogy",
-  "assumption-conclusion": "Assumption & Conclusion",
-  "fallacies": "Fallacies",
-  "sequences": "Sequences",
-
-  // Numerical
-  "math-basics": "Math Basics",
-  "word-problem": "Word Problem",
-  "probabilities": "Probabilities",
-  "data-interpretation": "Data Interpretation",
-
-  // Clerical
-  "clerical": "Clerical",
-
-  // General Info
-  "philippine-constitution": "The Philippine Constitution",
-  "civil-service-commission": "The Civil Service Commission",
-  "ra-7613-code": "RA 7613 Code of Conduct"
-};
-
+    // Verbal
+    "grammar": "Grammar",
+    "reading-comprehension": "Reading Comprehension",
+    "organizing-ideas": "Organizing Ideas",
+    // Analytical
+    "word-analogy": "Word Analogy",
+    "assumption-conclusion": "Assumption & Conclusion",
+    "fallacies": "Fallacies",
+    "sequences": "Sequences",
+    // Numerical
+    "math-basics": "Math Basics",
+    "word-problem": "Word Problem",
+    "probabilities": "Probabilities",
+    "data-interpretation": "Data Interpretation",
+    // Clerical
+    "clerical": "Clerical",
+    // General Info
+    "philippine-constitution": "The Philippine Constitution",
+    "civil-service-commission": "The Civil Service Commission",
+    "ra-7613-code": "RA 7613 Code of Conduct"
+  };
   return titleMap[category] || category.replace(/-/g, ' ');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const { category } = getQueryParams();
-  const quizTitle = document.getElementById('quiz-title');
-  const instruction = document.getElementById('category-instruction');
+// ========== 4. Quiz Initialization ==========
+document.addEventListener("DOMContentLoaded", () => {
+  const { competency, category } = getQueryParams();
+  const quizTitle = document.getElementById("quiz-title");
+  const instruction = document.getElementById("category-instruction");
 
   if (quizTitle && category) {
-    const formattedTitle = formatTitle(category);
-    quizTitle.textContent = formattedTitle;
+    const formatted = formatTitle(category);
+    quizTitle.textContent = formatted;
     if (instruction) {
-      instruction.textContent = `💡 You are taking the ${formattedTitle} quiz.`;
+      instruction.textContent = `💡 You are taking the ${formatted} quiz.`;
     }
   }
-});
 
-// === QUIZ PAGE LOGIC ===
-document.addEventListener("DOMContentLoaded", () => {
-  const startBtn = document.querySelector(".quiz-generator-btn");
+  const startBtn = document.querySelector(".generator-btn");
   const timer = document.getElementById("timer");
   const quizContainer = document.getElementById("quiz-container");
   const submitBtn = document.getElementById("submit-btn");
   const modal = document.getElementById("modal");
   const closeModalBtn = document.getElementById("modal-close-btn");
-  const viewExplanationsBtn = document.querySelectorAll(".modal-btn")[1]; // second button
+  const viewExplanationsBtn = document.querySelectorAll(".modal-btn")[1];
 
-  // Start Quiz
-  startBtn?.addEventListener("click", () => {
+  let moduleCache = null;
+  let quizData = null;
+
+  async function loadGeneratorScript() {
+    if (!competency || !category) return;
+    const path = `./data/${competency}/${category}/generator.js`;
+
+    try {
+      const module = await import(path + `?v=${Date.now()}`); // bust cache
+      moduleCache = module;
+      quizData = await module.generateQuiz();
+      renderQuiz(quizData);
+    } catch (error) {
+      quizContainer.innerHTML = `<p style="color:red">❌ Failed to load quiz generator.</p>`;
+      console.error("Generator Load Error:", error);
+    }
+  }
+
+  function renderQuiz(data) {
+    quizContainer.innerHTML = "";
+    data.forEach((item, index) => {
+      const qEl = document.createElement("div");
+      qEl.className = "quiz-question";
+      qEl.innerHTML = `
+        <p><strong>${index + 1}.</strong> ${item.question[0]} : ${item.question[1]} → ____ : ____</p>
+        ${item.choices.map((choice, i) => `
+          <label>
+            <input type="radio" name="q${index}" value="${i}">
+            ${choice.pair[0]} : ${choice.pair[1]}
+          </label><br>
+        `).join("")}
+      `;
+      quizContainer.appendChild(qEl);
+    });
+  }
+
+  startBtn?.addEventListener("click", async () => {
     timer.hidden = false;
     quizContainer.hidden = false;
     submitBtn.hidden = false;
-
-    // Change button label to "↻ New Quiz"
     startBtn.textContent = "↻ New Quiz";
 
-    // OPTIONAL: Add dummy content for now
-    quizContainer.innerHTML = "<p>📚 Quiz questions will go here...</p>";
+    if (!moduleCache) {
+      await loadGeneratorScript();
+    } else {
+      quizData = await moduleCache.generateQuiz();
+      renderQuiz(quizData);
+    }
   });
 
-  // Submit Quiz
   submitBtn?.addEventListener("click", () => {
     modal.style.display = "block";
   });
 
-  // Close Modal
   closeModalBtn?.addEventListener("click", () => {
     modal.style.display = "none";
   });
 
-  // View Explanations (currently just closes modal)
   viewExplanationsBtn?.addEventListener("click", () => {
     modal.style.display = "none";
   });
