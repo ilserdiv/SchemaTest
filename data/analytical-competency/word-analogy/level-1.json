@@ -1,5 +1,5 @@
 [
-{"subtype":"Antonyms","pairs":[{"A":"Hot","B":"Cold"},{"A":"Big","B":"Small"},{"A":"Fast","B":"Slow"},
+{"type":"Antonyms","pairs":[{"A":"Hot","B":"Cold"},{"A":"Big","B":"Small"},{"A":"Fast","B":"Slow"},
 {"A":"Happy","B":"Sad"},{"A":"Light","B":"Dark"},{"A":"Open","B":"Closed"},{"A":"Day","B":"Night"},
 {"A":"Up","B":"Down"},{"A":"Hard","B":"Soft"},{"A":"Win","B":"Lose"},{"A":"Full","B":"Empty"},
 {"A":"Early","B":"Late"},{"A":"In","B":"Out"},{"A":"Dry","B":"Wet"},{"A":"Thick","B":"Thin"},
@@ -7,7 +7,7 @@
 {"A":"Young","B":"Old"},{"A":"Sharp","B":"Dull"},{"A":"True","B":"False"},{"A":"Give","B":"Take"},
 {"A":"Laugh","B":"Cry"},{"A":"Come","B":"Go"}]}
 ,
-{"subtype":"Synonyms","pairs":[{"A":"Big","B":"Large"},{"A":"Small","B":"Tiny"},{"A":"Fast","B":"Quick"},
+{"type":"Synonyms","pairs":[{"A":"Big","B":"Large"},{"A":"Small","B":"Tiny"},{"A":"Fast","B":"Quick"},
 {"A":"Happy","B":"Joyful"},{"A":"Sad","B":"Unhappy"},{"A":"Smart","B":"Intelligent"},{"A":"Funny","B":"Humorous"},
 {"A":"Angry","B":"Mad"},{"A":"Cold","B":"Chilly"},{"A":"Warm","B":"Hot"},{"A":"Easy","B":"Simple"},
 {"A":"Hard","B":"Difficult"},{"A":"Begin","B":"Start"},{"A":"End","B":"Finish"},{"A":"Help","B":"Assist"},
@@ -15,7 +15,7 @@
 {"A":"Make","B":"Create"},{"A":"Ask","B":"Inquire"},{"A":"Answer","B":"Respond"},{"A":"Love","B":"Adore"},
 {"A":"Hate","B":"Despise"},{"A":"Tell","B":"Inform"}]}
 ,
-{"subtype":"Category to Member","pairs":[{"A":"Fruit","B":"Apple"},{"A":"Animal","B":"Dog"},{"A":"Vehicle","B":"Car"},
+{"type":"Category to Member","pairs":[{"A":"Fruit","B":"Apple"},{"A":"Animal","B":"Dog"},{"A":"Vehicle","B":"Car"},
 {"A":"Color","B":"Red"},{"A":"Instrument","B":"Guitar"},{"A":"Bird","B":"Sparrow"},{"A":"Insect","B":"Ant"},
 {"A":"Clothing","B":"Shirt"},{"A":"Shape","B":"Circle"},{"A":"Flower","B":"Rose"},{"A":"Country","B":"Japan"},
 {"A":"Sport","B":"Soccer"},{"A":"Furniture","B":"Chair"},{"A":"Toy","B":"Doll"},{"A":"Tool","B":"Hammer"},
@@ -23,7 +23,7 @@
 {"A":"Fish","B":"Salmon"},{"A":"Season","B":"Winter"},{"A":"City","B":"Paris"},{"A":"Planet","B":"Earth"},
 {"A":"Emotion","B":"Happiness"},{"A":"Metal","B":"Iron"}]}
 ,
-{"subtype":"Cause and Effect","pairs":[{"A":"Rain","B":"Flood"},{"A":"Fire","B":"Smoke"},{"A":"Sun","B":"Heat"},
+{"type":"Cause and Effect","pairs":[{"A":"Rain","B":"Flood"},{"A":"Fire","B":"Smoke"},{"A":"Sun","B":"Heat"},
 {"A":"Cold","B":"Shiver"},{"A":"Study","B":"Pass"},{"A":"Sleep","B":"Rest"},{"A":"Eat","B":"Full"},
 {"A":"Exercise","B":"Sweat"},{"A":"Injury","B":"Pain"},{"A":"Wind","B":"Dust"},{"A":"Planting","B":"Growth"},
 {"A":"Laughter","B":"Joy"},{"A":"Crying","B":"Sadness"},{"A":"Cooking","B":"Meal"},{"A":"Spill","B":"Mess"},
@@ -31,14 +31,14 @@
 {"A":"Reading","B":"Learning"},{"A":"Clapping","B":"Sound"},{"A":"Tickle","B":"Laugh"},{"A":"Raincloud","B":"Rain"},
 {"A":"Push","B":"Move"},{"A":"Falling","B":"Injury"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Pen","B":"Write"},{"A":"Knife","B":"Cut"},{"A":"Shovel","B":"Dig"},
+{"type":"Function or Use","pairs":[{"A":"Pen","B":"Write"},{"A":"Knife","B":"Cut"},{"A":"Shovel","B":"Dig"},
 {"A":"Hammer","B":"Pound"},{"A":"Eraser","B":"Erase"},{"A":"Ruler","B":"Measure"},{"A":"Camera","B":"Photograph"},
 {"A":"Brush","B":"Paint"},{"A":"Key","B":"Unlock"},{"A":"Axe","B":"Chop"},{"A":"Spoon","B":"Scoop"},{"A":"Phone","B":"Call"},
 {"A":"Clock","B":"Tell"},{"A":"Radio","B":"Broadcast"},{"A":"Book","B":"Read"},{"A":"Lantern","B":"Shine"},
 {"A":"Speaker","B":"Play"},{"A":"Fan","B":"Cool"},{"A":"Helmet","B":"Protect"},{"A":"Tent","B":"Shelter"},{"A":"Oven","B":"Bake"},
 {"A":"Straw","B":"Sip"},{"A":"Stapler","B":"Fasten"},{"A":"Glove","B":"Grip"},{"A":"Bell","B":"Ring"}]}
 ,
-{"subtype":"Part to Whole","pairs":[{"A":"Wheel","B":"Car"},{"A":"Page","B":"Book"},{"A":"Finger","B":"Hand"},
+{"type":"Part to Whole","pairs":[{"A":"Wheel","B":"Car"},{"A":"Page","B":"Book"},{"A":"Finger","B":"Hand"},
 {"A":"Petal","B":"Flower"},{"A":"Leaf","B":"Tree"},{"A":"Key","B":"Keyboard"},{"A":"Straw","B":"Broom"},
 {"A":"Feather","B":"Bird"},{"A":"Toe","B":"Foot"},{"A":"Nail","B":"Finger"},{"A":"Window","B":"House"},
 {"A":"Step","B":"Staircase"},{"A":"Thread","B":"Cloth"},{"A":"Button","B":"Shirt"},{"A":"Wing","B":"Airplane"},
@@ -46,7 +46,7 @@
 {"A":"Bead","B":"Necklace"},{"A":"Bone","B":"Skeleton"},{"A":"Note","B":"Song"},{"A":"Engine","B":"Train"},
 {"A":"Toe","B":"Sock"},{"A":"Window","B":"Room"}]}
 ,
-{"subtype":"Degree or Sequence","pairs":[{"A":"Warm","B":"Hot"},{"A":"Cold","B":"Freezing"},{"A":"Small","B":"Tiny"},
+{"type":"Degree or Sequence","pairs":[{"A":"Warm","B":"Hot"},{"A":"Cold","B":"Freezing"},{"A":"Small","B":"Tiny"},
 {"A":"Big","B":"Huge"},{"A":"Fast","B":"Faster"},{"A":"Soft","B":"Softer"},{"A":"Slow","B":"Slower"},
 {"A":"Young","B":"Younger"},{"A":"Old","B":"Older"},{"A":"Light","B":"Lighter"},{"A":"Hard","B":"Harder"},
 {"A":"Bright","B":"Brighter"},{"A":"Tall","B":"Taller"},{"A":"Dark","B":"Darker"},{"A":"Short","B":"Shorter"},
@@ -54,7 +54,7 @@
 {"A":"Late","B":"Later"},{"A":"Early","B":"Earlier"},{"A":"Quick","B":"Quicker"},{"A":"Deep","B":"Deeper"},
 {"A":"Rich","B":"Richer"},{"A":"Cheap","B":"Cheaper"}]}
 ,
-{"subtype":"Collective Noun","pairs":[{"A":"Flock","B":"Birds"},{"A":"Herd","B":"Cows"},{"A":"Pack","B":"Wolves"},
+{"type":"Collective Noun","pairs":[{"A":"Flock","B":"Birds"},{"A":"Herd","B":"Cows"},{"A":"Pack","B":"Wolves"},
 {"A":"Swarm","B":"Bees"},{"A":"School","B":"Fish"},{"A":"Team","B":"Players"},{"A":"Bunch","B":"Grapes"},
 {"A":"Stack","B":"Books"},{"A":"Pile","B":"Leaves"},{"A":"Group","B":"Friends"},{"A":"Pair","B":"Shoes"},
 {"A":"Set","B":"Plates"},{"A":"Class","B":"Students"},{"A":"Fleet","B":"Ships"},{"A":"Troop","B":"Scouts"},
@@ -62,7 +62,7 @@
 {"A":"Bundle","B":"Sticks"},{"A":"Deck","B":"Cards"},{"A":"Suit","B":"Clothes"},{"A":"Bowl","B":"Fruits"},
 {"A":"Box","B":"Crayons"},{"A":"Bag","B":"Marbles"}]}
 ,
-{"subtype":"Location or Setting","pairs":[{"A":"Kitchen","B":"Stove"},{"A":"Bathroom","B":"Toilet"},{"A":"Garage","B":"Car"},
+{"type":"Location or Setting","pairs":[{"A":"Kitchen","B":"Stove"},{"A":"Bathroom","B":"Toilet"},{"A":"Garage","B":"Car"},
 {"A":"Garden","B":"Flowers"},{"A":"School","B":"Students"},{"A":"Hospital","B":"Doctors"},{"A":"Classroom","B":"Chalkboard"},
 {"A":"Zoo","B":"Animals"},{"A":"Library","B":"Books"},{"A":"Office","B":"Desk"},{"A":"Closet","B":"Clothes"},
 {"A":"Playground","B":"Slide"},{"A":"Farm","B":"Cows"},{"A":"Nest","B":"Bird"},{"A":"Barn","B":"Hay"},
@@ -70,7 +70,7 @@
 {"A":"Bedroom","B":"Pillow"},{"A":"Living Room","B":"Sofa"},{"A":"Bathroom","B":"Sink"},{"A":"Bakery","B":"Bread"},
 {"A":"Cinema","B":"Movie"},{"A":"Store","B":"Groceries"}]}
 ,
-{"subtype":"Profession to Object","pairs":[{"A":"Teacher","B":"Students"},{"A":"Doctor","B":"Patients"},{"A":"Chef","B":"Food"},
+{"type":"Profession to Object","pairs":[{"A":"Teacher","B":"Students"},{"A":"Doctor","B":"Patients"},{"A":"Chef","B":"Food"},
 {"A":"Farmer","B":"Crops"},{"A":"Driver","B":"Vehicle"},{"A":"Artist","B":"Paintings"},{"A":"Photographer","B":"Pictures"},
 {"A":"Writer","B":"Stories"},{"A":"Carpenter","B":"Wood"},{"A":"Mechanic","B":"Engines"},{"A":"Musician","B":"Songs"},
 {"A":"Nurse","B":"Sick"},{"A":"Dentist","B":"Teeth"},{"A":"Firefighter","B":"Fires"},{"A":"Cashier","B":"Payments"},

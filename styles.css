@@ -12,7 +12,7 @@ body {
     #000814 0%,
     #001d3d 59%,
     #004080 72%,
-    #ffd100 75%,
+    #ffffff 75%,
     #c8102e 77%
   );
   background-size: 120% 120%;
@@ -217,6 +217,10 @@ button:hover {
 
   .competency-title {
     font-size: 1.2rem;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
   }
 
   .carousel-image {

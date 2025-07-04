@@ -1,5 +1,5 @@
 [
-{"subtype":"Antonyms","pairs":[{"A":"Erudite","B":"Ignorant"},{"A":"Loquacious","B":"Taciturn"},
+{"type":"Antonyms","pairs":[{"A":"Erudite","B":"Ignorant"},{"A":"Loquacious","B":"Taciturn"},
 {"A":"Magnanimous","B":"Vindictive"},{"A":"Lucid","B":"Obscure"},{"A":"Ascend","B":"Plummet"},{"A":"Candid","B":"Deceptive"},
 {"A":"Prolific","B":"Barren"},{"A":"Venerate","B":"Desecrate"},{"A":"Altruistic","B":"Selfish"},{"A":"Concur","B":"Dissent"},
 {"A":"Immutable","B":"Capricious"},{"A":"Pristine","B":"Defiled"},{"A":"Sagacious","B":"Foolish"},{"A":"Austere","B":"Lavish"},
@@ -8,7 +8,7 @@
 {"A":"Diligent","B":"Indolent"},{"A":"Innovative","B":"Conventional"},{"A":"Meticulous","B":"Careless"},
 {"A":"Reverent","B":"Irreverent"}]}
 ,
-{"subtype":"Synonyms","pairs":[{"A":"Fearful","B":"Afraid"},{"A":"Bright","B":"Vivid"},{"A":"Soft","B":"Cushiony"},
+{"type":"Synonyms","pairs":[{"A":"Fearful","B":"Afraid"},{"A":"Bright","B":"Vivid"},{"A":"Soft","B":"Cushiony"},
 {"A":"Hard","B":"Tough"},{"A":"Big","B":"Huge"},{"A":"Small","B":"Miniature"},{"A":"True","B":"Accurate"},
 {"A":"False","B":"Incorrect"},{"A":"Safe","B":"Secure"},{"A":"Dangerous","B":"Hazardous"},{"A":"Wide","B":"Broad"},
 {"A":"Narrow","B":"Slim"},{"A":"Help","B":"Aid"},{"A":"Stop","B":"Cease"},{"A":"Begin","B":"Commence"},
@@ -16,7 +16,7 @@
 {"A":"Run","B":"Dash"},{"A":"Jump","B":"Bound"},{"A":"Sleep","B":"Doze"},{"A":"Cry","B":"Sob"},{"A":"Listen","B":"Hear"},
 {"A":"Break","B":"Shatter"}]}
 ,
-{"subtype":"Category to Member","pairs":[{"A":"Archetype","B":"Trickster"},{"A":"Philosophical School","B":"Stoicism"},
+{"type":"Category to Member","pairs":[{"A":"Archetype","B":"Trickster"},{"A":"Philosophical School","B":"Stoicism"},
 {"A":"Rhetorical Device","B":"Chiasmus"},{"A":"Cognitive Bias","B":"Confirmation Bias"},{"A":"Quantum Field","B":"Higgs Field"},
 {"A":"Poetic Form","B":"Haiku"},{"A":"Formal Logic System","B":"Propositional Logic"},
 {"A":"Symbolic Logic Operator","B":"Biconditional"},{"A":"Neurotransmitter","B":"Dopamine"},
@@ -28,7 +28,7 @@
 {"A":"Bioethical Principle","B":"Autonomy"},{"A":"Formal Language","B":"Turing Machine"},
 {"A":"Epistemological Stance","B":"Empiricism"}]}
 ,
-{"subtype":"Cause and Effect","pairs":[{"A":"Cognitive Dissonance","B":"Behavioral Change"},
+{"type":"Cause and Effect","pairs":[{"A":"Cognitive Dissonance","B":"Behavioral Change"},
 {"A":"Overregulation","B":"Market Stagnation"},{"A":"Gene Mutation","B":"Phenotypic Variation"},
 {"A":"Data Mining","B":"Predictive Model"},{"A":"Colonization","B":"Cultural Erosion"},
 {"A":"Propaganda","B":"Mass Persuasion"},{"A":"Hegemony","B":"Cultural Dominance"},{"A":"Anomaly","B":"Theory Revision"},
@@ -41,7 +41,7 @@
 {"A":"Technological Singularity","B":"Human Redundancy"},{"A":"Immunosuppression","B":"Infection Risk"},
 {"A":"Alienation","B":"Worker Disengagement"},{"A":"Neural Stimulation","B":"Perception Shift"}]}
 ,
-{"subtype":"Function or Use","pairs":[{"A":"Spectrometer","B":"Analyze"},{"A":"Cryostat","B":"Preserve"},
+{"type":"Function or Use","pairs":[{"A":"Spectrometer","B":"Analyze"},{"A":"Cryostat","B":"Preserve"},
 {"A":"Oscilloscope","B":"Visualize"},{"A":"Electrophoresis","B":"Separate"},{"A":"Anemograph","B":"Record"},
 {"A":"Percolator","B":"Brew"},{"A":"Nephroscope","B":"Inspect"},{"A":"Sonicator","B":"Disrupt"},{"A":"Centrifuge","B":"Isolate"},
 {"A":"Photometer","B":"Measure"},{"A":"Dermabrader","B":"Resurface"},{"A":"Ablator","B":"Vaporize"},
@@ -50,7 +50,7 @@
 {"A":"Magnetometer","B":"Detect"},{"A":"Desalinator","B":"Purify"},{"A":"Dilatometer","B":"Expand"},
 {"A":"Ultrasonicator","B":"Agitate"},{"A":"Calorimeter","B":"Evaluate"},{"A":"Resonator","B":"Stabilize"}]}
 ,
-{"subtype":"Part to Whole","pairs":[{"A":"Quark","B":"Proton"},{"A":"Gene","B":"Chromosome"},{"A":"Axiom","B":"Proof"},
+{"type":"Part to Whole","pairs":[{"A":"Quark","B":"Proton"},{"A":"Gene","B":"Chromosome"},{"A":"Axiom","B":"Proof"},
 {"A":"Pixel","B":"Bitmap"},{"A":"Glyph","B":"Font"},{"A":"Instruction","B":"Program"},{"A":"Function","B":"Algorithm"},
 {"A":"Page Table","B":"Memory Management"},{"A":"Neuron","B":"Neural Network"},{"A":"Field","B":"Record"},
 {"A":"Predicate","B":"Logic Formula"},{"A":"Atom","B":"Molecule"},{"A":"Mitochondrion","B":"Cell"},
@@ -59,7 +59,7 @@
 {"A":"Parameter","B":"Function"},{"A":"Page","B":"Hard Drive"},{"A":"Module","B":"System Architecture"},
 {"A":"Socket","B":"Processor Core"},{"A":"Pixel","B":"Render Pipeline"},{"A":"Formula","B":"Theory"}]}
 ,
-{"subtype":"Degree or Sequence","pairs":[{"A":"Ion","B":"Atom"},{"A":"Preprint","B":"Peer Review"},{"A":"Assumption","B":"Proof"},
+{"type":"Degree or Sequence","pairs":[{"A":"Ion","B":"Atom"},{"A":"Preprint","B":"Peer Review"},{"A":"Assumption","B":"Proof"},
 {"A":"Theory","B":"Law"},{"A":"Electron","B":"Orbital"},{"A":"Hypothesis","B":"Conclusion"},{"A":"Molecule","B":"Compound"},
 {"A":"Draft","B":"Manuscript"},{"A":"Conceptual","B":"Empirical"},{"A":"Simile","B":"Metaphor"},
 {"A":"Outline","B":"Dissertation"},{"A":"Cell","B":"Organ"},{"A":"Data","B":"Insight"},{"A":"Impulse","B":"Decision"},
@@ -67,7 +67,7 @@
 {"A":"Sample","B":"Population"},{"A":"Speculation","B":"Prediction"},{"A":"Input","B":"Outcome"},{"A":"Proposal","B":"Project"},
 {"A":"Query","B":"Response"},{"A":"Datum","B":"Model"},{"A":"Initiation","B":"Execution"}]}
 ,
-{"subtype":"Collective Noun","pairs":[{"A":"Bevy","B":"Quail"},{"A":"Coven","B":"Witches"},{"A":"Horde","B":"Savages"},
+{"type":"Collective Noun","pairs":[{"A":"Bevy","B":"Quail"},{"A":"Coven","B":"Witches"},{"A":"Horde","B":"Savages"},
 {"A":"Arcade","B":"Games"},{"A":"Crèche","B":"Infants"},{"A":"Cabinet","B":"Advisors"},{"A":"Aggregate","B":"Metrics"},
 {"A":"Cohort","B":"Respondents"},{"A":"Guild","B":"Craftsmen"},{"A":"Pantheon","B":"Deities"},{"A":"Phalanx","B":"Troops"},
 {"A":"Panel","B":"Judges"},{"A":"Bouquet","B":"Flowers"},{"A":"Nest","B":"Vipers"},{"A":"Suite","B":"Software"},
@@ -75,7 +75,7 @@
 {"A":"Array","B":"Functions"},{"A":"Annex","B":"Documents"},{"A":"Corpus","B":"Texts"},{"A":"Legation","B":"Diplomats"},
 {"A":"Scrum","B":"Developers"},{"A":"Cluster","B":"Satellites"}]}
 ,
-{"subtype":"Location or Setting","pairs":[{"A":"Synapse","B":"Neurotransmitter"},{"A":"Collider","B":"Particles"},
+{"type":"Location or Setting","pairs":[{"A":"Synapse","B":"Neurotransmitter"},{"A":"Collider","B":"Particles"},
 {"A":"Cryochamber","B":"Sample"},{"A":"Petri Dish","B":"Culture"},{"A":"Repository","B":"Artifacts"},
 {"A":"Archive","B":"Manuscript"},{"A":"Nanofab","B":"Circuit"},{"A":"Data Lake","B":"Logs"},{"A":"Cerebellum","B":"Balance"},
 {"A":"Server Cluster","B":"Load"},{"A":"Datacenter","B":"Backup"},{"A":"Sanctuary","B":"Species"},
@@ -85,7 +85,7 @@
 {"A":"Firing Range","B":"Ammunition"},{"A":"Meta-Repository","B":"Model"},{"A":"Orbital Station","B":"Astronaut"},
 {"A":"Field Station","B":"Ecologist"}]}
 ,
-{"subtype":"Profession to Object","pairs":[{"A":"Cryptographer","B":"Ciphers"},{"A":"Ethicist","B":"Morality"},
+{"type":"Profession to Object","pairs":[{"A":"Cryptographer","B":"Ciphers"},{"A":"Ethicist","B":"Morality"},
 {"A":"Demographer","B":"Populations"},{"A":"Algorithmist","B":"Problems"},{"A":"Actuary","B":"Risk"},
 {"A":"Pharmacologist","B":"Drugs"},{"A":"Bioinformatician","B":"Genomes"},{"A":"Philosopher","B":"Ideas"},
 {"A":"Theologian","B":"Doctrine"},{"A":"Ecologist","B":"Ecosystems"},{"A":"Neurologist","B":"Brain"},
