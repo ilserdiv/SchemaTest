@@ -128,12 +128,12 @@ h1 {
 }
 
 .carousel::-webkit-scrollbar-track {
-  background: rgba(0, 29, 61, 0.2); /* deep navy translucent */
+  background: rgba(0, 29, 61, 0.2);
   border-radius: 10px;
 }
 
 .carousel::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #ffd100, #c8102e); /* gold to red */
+  background: linear-gradient(90deg, #ffd100, #c8102e);
   border-radius: 10px;
   border: 2px solid #001d3d;
 }
@@ -147,7 +147,6 @@ h1 {
   scrollbar-width: thin;
   scrollbar-color: #ffd100 rgba(0, 29, 61, 0.2);
 }
-
 
 /* === COMPETENCY TITLES === */
 .competency-title {
@@ -178,28 +177,39 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* === BUTTONS: White base with red, gold, blue accent === */
+/* === BUTTONS === */
 button {
   width: 100%;
   max-width: 360px;
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 600;
-  color: #001d3d;
-  background: linear-gradient(135deg, #f8f8f8 75%, #ffe99e 100%);
+  color: #002244;
+  background: linear-gradient(145deg, #ffffff, #e6edf7);
   border: 2px solid #004080;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-button:hover {
-  background: linear-gradient(135deg, #fff8dc, #ffd100);
+button:hover,
+button:focus {
+  background: linear-gradient(145deg, #fff6d6, #ffe484);
   color: #c8102e;
   border-color: #c8102e;
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 64, 128, 0.3);
+  box-shadow:
+    0 6px 16px rgba(0, 64, 128, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 29, 61, 0.2) inset;
 }
 
 /* === ANIMATION === */
@@ -231,5 +241,15 @@ button:hover {
 
   button {
     font-size: 0.95rem;
+    width: auto;
+    max-width: none;
+    padding: 10px 14px;
+  }
+
+  #top-controls,
+  #bottom-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
 }

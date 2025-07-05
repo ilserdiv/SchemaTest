@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SchemaTest: Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
   <!-- Quiz Introduction -->
@@ -11,35 +12,47 @@
     <img src="assets/images/SCT.png" alt="SchemaTest">
     <h1 id="quiz-title">Quiz</h1>
     <p id="quiz-text">This quiz has 10 questions. You will have 10 minutes to complete it.</p>
-    <p id="category-instruction" hidden><!--Insert Instruction for each Category--></p>
+    <p id="category-instruction" class="visually-hidden"><!--Insert Instruction for each Category--></p>
   </header>
 
   <!-- Main Content -->
   <main>
-    <button class="generator-btn">▶ Start Quiz</button>
-    <button class="clear-btn" hidden>🗑️ Clear Quiz</button>
-    <div id="timer" hidden>🕙Time Left: <span id="countdown"></span></div>
-    <div id="quiz-container" hidden></div>
-    <button id="submit-btn" hidden>✔ Submit</button>
-    <button onclick="window.location.href='index.html'">🏠 Back to Homepage</button>
+    <div id="top-controls-container">
+      <div id="top-controls">
+        <button class="generator-btn">▶Start</button>
+        <button class="clear-btn hidden">🗑️Clear</button>
+        <div id="timer" class="hidden">🕙: <span id="countdown"></span></div>
+      </div>
+    </div>
+    
+    <div id="quiz-container" class="hidden"></div>
+
+    <div id="bottom-controls-container">
+      <div id="bottom-controls">
+        <button onclick="window.location.href='index.html'">🏠Home</button>
+        <button id="submit-btn" class="hidden">✔Submit</button>
+      </div>
+    </div>
   </main>
 
   <!-- Modal For Summary -->
-  <div id="modal" hidden>
-    <button id="modal-close-btn">❌</button>
-    <div>
-      <h2 id="modal-title">Summary</h2>
-    </div>
-    <div id="summary-container">
-      <p id="score-text">Score: </p>
-      <p id="time-text">Avg Time: </p>
-      <div id="feedback-box">
-        <p id="feedback"></p>
+  <div id="modal" class="hidden">
+    <div id="modal-container">
+      <button id="modal-close-btn">❌</button>
+      <div>
+        <h2 id="modal-title">Summary</h2>
       </div>
-    </div>
-    <div id="summary-btn-container">
-      <button class="modal-btn" onclick="window.location.href='index.html'">🏠 Back to Homepage</button>
-      <button class="modal-btn">👁️View Explanations</button>
+      <div id="summary-container">
+        <p id="score-text">Score: </p>
+        <p id="time-text">Avg Time: </p>
+        <div id="feedback-box">
+          <p id="feedback"></p>
+        </div>
+      </div>
+      <div id="summary-btn-container">
+        <button class="modal-btn" onclick="window.location.href='index.html'">🏠Home</button>
+        <button class="modal-btn">👁️Review</button>
+      </div>
     </div>
   </div>
 
