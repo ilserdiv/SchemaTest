@@ -1,3 +1,4 @@
+// === Explanation templates by analogy type ===
 const EXPLANATIONS = {
   'Antonyms': (a, b) => `${a} and ${b} have opposite meanings.`,
   'Synonyms': (a, b) => `${a} and ${b} have similar meanings.`,
@@ -11,12 +12,22 @@ const EXPLANATIONS = {
   'Collective Noun': (a, b) => `A group of ${b} is called a ${a}.`
 };
 
-const LEVEL_FILES = [
-  "level-1.json", "level-1.json", "level-1.json", "level-3.json",
-  "level-3.json", "level-2.json", "level-2.json", "level-2.json",
-  "level-4.json", "level-4.json"
+// === All supported analogy types ===
+const ALL_TYPES = [
+  "Antonyms", "Synonyms", "Category to Member", "Cause and Effect",
+  "Function or Use", "Part to Whole", "Degree or Sequence",
+  "Collective Noun", "Location or Setting", "Profession to Object"
 ];
 
+// === Blueprint of how many items to take from which level ===
+const LEVEL_PLAN = [
+  { level: "level-1.json", count: 3 },
+  { level: "level-3.json", count: 2 },
+  { level: "level-2.json", count: 3 },
+  { level: "level-4.json", count: 2 }
+];
+
+// === Fisher-Yates shuffle algorithm for randomizing arrays ===
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -25,88 +36,92 @@ function shuffleArray(arr) {
   return arr;
 }
 
+// === Reverses the order of a pair if `reversed` is true ===
 function applyReversal(pair, reversed) {
   return reversed ? [pair[1], pair[0]] : [pair[0], pair[1]];
 }
 
+// === Loads all pair data from a level file (e.g., level-1.json) and flattens it ===
 async function fetchLevelData(levelFile) {
   const res = await fetch(`../../data/analytical-competency/word-analogy/${levelFile}`);
   const data = await res.json();
-  const allPairs = [];
-
+  const flat = [];
   data.forEach(group => {
     group.pairs.forEach(pair => {
-      allPairs.push({ pair, type: group.type });
+      flat.push({ pair, type: group.type });
     });
   });
-
-  return allPairs;
+  return flat;
 }
 
+// === Main function to generate 10 analogy quiz items ===
 async function generateQuiz() {
   const quiz = [];
 
-  for (let i = 0; i < 10; i++) {
-    const levelData = await fetchLevelData(LEVEL_FILES[i]);
-    shuffleArray(levelData);
+  // Randomize the types so each quiz has different combinations
+  const typesPool = shuffleArray([...ALL_TYPES]);
 
-    // Group by type
+  // Go through each level plan and generate questions
+  for (const { level, count } of LEVEL_PLAN) {
+    const levelData = await fetchLevelData(level);
+
+    // Group all pairs by type
     const typeMap = {};
     levelData.forEach(item => {
       if (!typeMap[item.type]) typeMap[item.type] = [];
       typeMap[item.type].push(item.pair);
     });
 
-    // Get a type with at least 2 pairs
-    let mainType, mainPairs;
-    const availableTypes = Object.keys(typeMap).filter(type => typeMap[type].length >= 2);
-    if (availableTypes.length === 0) continue;
+    // For each required item in this level
+    for (let i = 0; i < count; i++) {
+      const type = typesPool.pop();
+      const pairs = typeMap[type];
 
-    mainType = availableTypes[Math.floor(Math.random() * availableTypes.length)];
-    mainPairs = shuffleArray(typeMap[mainType]);
+      // Skip if there aren't at least 2 pairs of the selected type
+      if (!pairs || pairs.length < 2) continue;
 
-    const questionPair = mainPairs[0];
-    const correctPair = mainPairs[1];
+      const reversed = Math.random() < 0.5; // randomize order
+      const shuffledPairs = shuffleArray([...pairs]);
 
-    const reversed = Math.random() < 0.5;
-    const question = applyReversal(questionPair, reversed);
-    const correctAnswer = applyReversal(correctPair, reversed);
+      const question = applyReversal(shuffledPairs[0], reversed);
+      const correct = applyReversal(shuffledPairs[1], reversed);
 
-    // Collect distractors from other types
-    const distractors = [];
-    for (const type of Object.keys(typeMap)) {
-      if (type === mainType) continue;
-      const pool = shuffleArray(typeMap[type]);
-      for (const pair of pool) {
-        distractors.push({
-          pair: applyReversal(pair, reversed),
-          type,
-          correct: false,
-          explanation: EXPLANATIONS[type](...applyReversal(pair, reversed))
-        });
+      // === Build 3 distractor choices from other types ===
+      const distractors = [];
+      for (const [otherType, pool] of Object.entries(typeMap)) {
+        if (otherType === type) continue;
+        for (const pair of shuffleArray(pool)) {
+          distractors.push({
+            pair: applyReversal(pair, reversed),
+            type: otherType,
+            correct: false,
+            explanation: EXPLANATIONS[otherType](...applyReversal(pair, reversed))
+          });
+          if (distractors.length === 3) break;
+        }
         if (distractors.length === 3) break;
       }
-      if (distractors.length === 3) break;
+
+      // === Add correct choice ===
+      const choices = [
+        {
+          pair: correct,
+          type,
+          correct: true,
+          explanation: EXPLANATIONS[type](...correct)
+        },
+        ...distractors
+      ];
+
+      shuffleArray(choices); // randomize choice order
+
+      // === Push complete quiz item ===
+      quiz.push({
+        question,
+        type,
+        choices
+      });
     }
-
-    // Add correct choice
-    const choices = [
-      {
-        pair: correctAnswer,
-        type: mainType,
-        correct: true,
-        explanation: EXPLANATIONS[mainType](...correctAnswer)
-      },
-      ...distractors
-    ];
-
-    shuffleArray(choices);
-
-    quiz.push({
-      question,
-      type: mainType,
-      choices
-    });
   }
 
   return quiz;
