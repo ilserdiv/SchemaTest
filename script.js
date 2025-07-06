@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scoreText) {
       scoreText.textContent = `Score: ${score} / 10 (${missed} missed)`;
       scoreText.style.color =
-        score >= 8 ? "green" :
+        score >= 8 ? "#4CFF4C" :
         score >= 4 ? "goldenrod" :
         "red";
     }
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (timeText) {
       timeText.textContent = `Avg Time: ${avgTime.toFixed(1)}s`;
       timeText.style.color =
-        avgTime <= 20 ? "green" :
+        avgTime <= 20 ? "#4CFF4C" :
         avgTime <= 40 ? "goldenrod" :
         "red";
     }
@@ -318,5 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   viewExplanationsBtn?.addEventListener("click", () => {
     modal.classList.add("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });

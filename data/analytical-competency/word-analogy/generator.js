@@ -6,7 +6,7 @@ const EXPLANATIONS = {
   'Function or Use': (a, b) => `${a} is used to ${b}.`,
   'Part to Whole': (a, b) => `${a} is a part of a ${b}.`,
   'Degree or Sequence': (a, b) => `${a} comes before ${b} in progression.`,
-  'Location or Setting': (a, b) => `${b} can be found in a ${a}.`,
+  'Location or Setting': (a, b) => `${a} can be found in a ${b}.`,
   'Profession to Object': (a, b) => `${a} is associated with ${b}.`,
   'Category to Member': (a, b) => `${b} belongs in the category, ${a}.`,
   'Collective Noun': (a, b) => `A group of ${b} is called a ${a}.`
@@ -34,11 +34,6 @@ function shuffleArray(arr) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
-}
-
-// === Reverses the order of a pair if `reversed` is true ===
-function applyReversal(pair, reversed) {
-  return reversed ? [pair[1], pair[0]] : [pair[0], pair[1]];
 }
 
 // === Loads all pair data from a level file (e.g., level-1.json) and flattens it ===
@@ -80,11 +75,10 @@ async function generateQuiz() {
       // Skip if there aren't at least 2 pairs of the selected type
       if (!pairs || pairs.length < 2) continue;
 
-      const reversed = Math.random() < 0.5; // randomize order
       const shuffledPairs = shuffleArray([...pairs]);
 
-      const question = applyReversal(shuffledPairs[0], reversed);
-      const correct = applyReversal(shuffledPairs[1], reversed);
+      const question = shuffledPairs[0];
+      const correct = shuffledPairs[1];
 
       // === Build 3 distractor choices from other types ===
       const distractors = [];
@@ -92,10 +86,10 @@ async function generateQuiz() {
         if (otherType === type) continue;
         for (const pair of shuffleArray(pool)) {
           distractors.push({
-            pair: applyReversal(pair, reversed),
+            pair: pair,
             type: otherType,
             correct: false,
-            explanation: EXPLANATIONS[otherType](...applyReversal(pair, reversed))
+            explanation: EXPLANATIONS[otherType](...pair)
           });
           if (distractors.length === 3) break;
         }

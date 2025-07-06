@@ -241,8 +241,6 @@ button:active {
 
   button {
     font-size: 0.95rem;
-    width: auto;
-    max-width: none;
     padding: 10px 14px;
   }
 

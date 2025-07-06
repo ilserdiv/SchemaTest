@@ -112,37 +112,76 @@ main {
 
 /* ========== QUIZ SECTION ========== */
 #quiz-container {
-  background: var(--transparent-container);
-  color: #222;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8f9fa;
   margin: 0 auto;
   padding: 2rem;
   max-width: 800px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
 }
 
 .quiz-question {
   margin-bottom: 1.5rem;
-  background: rgba(240, 248, 255, 0.9);
-  border: 1px solid #cce;
-  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #99ccff;
+  border-radius: 12px;
   padding: 1rem;
+  transition: background 0.3s ease;
+}
+
+.quiz-question p {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffe484;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 4px rgba(255, 228, 132, 0.5);
+}
+
+.quiz-question label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(0, 64, 128, 0.6);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.quiz-question label:hover {
+  background: #3399ff;
+  border: 1px solid #88ccff;
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(51, 153, 255, 0.3);
+}
+
+.quiz-question input[type="radio"]:checked + label {
+  background: linear-gradient(to right, #00b894, #00cec9);
+  border: 1px solid #aaffcc;
+  color: #001d3d;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(0, 255, 150, 0.4);
 }
 
 .explanation {
-  margin-top: 0.5rem;
-  background: #eef5ff;
-  border-left: 4px solid #004080;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+  background: #e0ffe0;
+  border-left: 5px solid #00b894;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   font-style: italic;
-  color: #444;
+  color: #003322;
+  box-shadow: inset 0 0 6px rgba(0, 255, 150, 0.1);
 }
 
 /* ========== MODAL ========== */
 #modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   display: flex;
@@ -152,7 +191,7 @@ main {
 }
 
 #modal-container {
-  background: rgba(0, 29, 61, 0.75);
+  background: rgb(0, 32, 64);
   color: #f0f0f0;
   padding: 2rem;
   border-radius: 1rem;
@@ -185,6 +224,15 @@ main {
 #modal-close-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
+}
+
+#modal-container .score,
+#modal-container .average-time {
+  color: #00ff88;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+  margin: 0.25rem 0;
 }
 
 /* ========== BUTTONS ========== */
